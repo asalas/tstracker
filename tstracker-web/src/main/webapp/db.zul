@@ -1,0 +1,38 @@
+<?page title="Conexion con Xeround" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('com.cloudfoundry.nrv.tstracker.web.xeround.ClienteFormViewModel')"
+		form="@id('fx') @load(vm.cliente) @save(vm.cliente, before='submit')"
+		width="460px">
+		<grid>
+			<columns>
+				<column label="Campo" width="150px" />
+				<column label="Valor" width="300px" />
+			</columns>
+			<rows>
+				<row>
+					<label value="Direccion" />
+					<hlayout>
+						<textbox value="@bind(fx.direccion)"
+							tabindex="1" width="150px" />
+					</hlayout>
+				</row>
+				<row>
+					<label value="Nombre" />
+					<hlayout>
+						<textbox value="@bind(fx.nombre)" tabindex="2"
+							width="150px" />
+					</hlayout>
+				</row>
+				<row>
+					<cell colspan="2" style="text-align: center">
+						<vlayout>
+							<button label="Enviar" width="100px"
+								height="30px" onClick="@command('submit')" />
+						</vlayout>
+					</cell>
+				</row>
+			</rows>
+		</grid>
+	</div>
+</zk>
