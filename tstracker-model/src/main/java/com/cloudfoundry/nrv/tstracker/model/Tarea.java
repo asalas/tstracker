@@ -3,6 +3,15 @@ package com.cloudfoundry.nrv.tstracker.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**
  * Esta entidad representa las Tareas o actividades que realiza el Desarrollador
  * durante cierto periodo de tiempo
@@ -10,23 +19,35 @@ import java.util.Date;
  * @author asalas
  * 
  */
+
+@Entity
+@Table(name = "tarea")
 public class Tarea implements Serializable {
 
 	/**
 	 * Serial ID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_actividad")
 	private Long id;
-	
+
+	@Temporal(value = TemporalType.DATE)
+	@Column(name = "dia")
 	private Date dia;
-	
+
+	@Column(name = "actividad")
 	private String actividad;
-	
+
+	@Column(name = "descripcion")
 	private String descripcion;
-	
+
+	@Column(name = "horas")
 	private Integer horas;
-	
+
+	@Column(name = "observaciones")
 	private String observaciones;
 
 	public Long getId() {
@@ -75,6 +96,6 @@ public class Tarea implements Serializable {
 
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}	
+	}
 
 }

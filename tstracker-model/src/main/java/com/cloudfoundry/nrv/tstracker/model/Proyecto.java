@@ -1,31 +1,59 @@
 package com.cloudfoundry.nrv.tstracker.model;
 
 import java.io.Serializable;
-import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * Esta entidad representa el Proyecto al cual está asignado un Desarrollador
- * @author WINTER42
- *
+ * 
+ * @author asalas
+ * 
  */
+
+@Entity
+@Table(name = "proyecto")
 public class Proyecto implements Serializable {
 
 	/**
 	 * Serial ID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_proyecto")
 	private Long id;
-	
+
+	@Column(name = "nombre")
 	private String nombre;
-	
+
+	@OneToOne(fetch = FetchType.EAGER)
 	private LiderTecnico liderTecnico;
-	
-	private List<Desarrollador> listaDesarrolladores;
-	
+
+	@Column(name = "duracion_meses")
 	private Integer duracionMeses;
-	
-	private String estado;
+
+	@Enumerated(value = EnumType.STRING)
+	@Column(name = "estado")
+	private EstadoEnum estado;
+
+	public EstadoEnum getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EstadoEnum estado) {
+		this.estado = estado;
+	}
 
 	public Long getId() {
 		return id;
@@ -51,28 +79,12 @@ public class Proyecto implements Serializable {
 		this.liderTecnico = liderTecnico;
 	}
 
-	public List<Desarrollador> getListaDesarrolladores() {
-		return listaDesarrolladores;
-	}
-
-	public void setListaDesarrolladores(List<Desarrollador> listaDesarrolladores) {
-		this.listaDesarrolladores = listaDesarrolladores;
-	}
-
 	public Integer getDuracionMeses() {
 		return duracionMeses;
 	}
 
 	public void setDuracionMeses(Integer duracionMeses) {
 		this.duracionMeses = duracionMeses;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
 	}
 
 }

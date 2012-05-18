@@ -32,10 +32,10 @@ public class Cliente implements Serializable {
 	@Column(name = "id_cliente")
 	private Long id;
 
-	@Column(name = "nombre", length = 255)
+	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "direccion", length = 255)
+	@Column(name = "direccion")
 	private String direccion;
 
 	public Long getId() {

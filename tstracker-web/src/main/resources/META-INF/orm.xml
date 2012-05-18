@@ -5,11 +5,11 @@
 	version="1.0">
 	<entity class="com.cloudfoundry.nrv.tstracker.model.Cliente" />
 	
-	<!-- <entity class="com.cloudfoundry.nrv.tstracker.model.Consultora" />
+	<entity class="com.cloudfoundry.nrv.tstracker.model.Consultora" />
 	<entity class="com.cloudfoundry.nrv.tstracker.model.Desarrollador" />
 	<entity class="com.cloudfoundry.nrv.tstracker.model.LiderTecnico" />
 	<entity class="com.cloudfoundry.nrv.tstracker.model.Proyecto" />
 	<entity class="com.cloudfoundry.nrv.tstracker.model.Reporte" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Tarea" /> -->
+	<entity class="com.cloudfoundry.nrv.tstracker.model.Tarea" />
 	
 </entity-mappings>

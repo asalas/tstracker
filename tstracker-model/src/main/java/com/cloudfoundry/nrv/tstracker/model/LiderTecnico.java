@@ -2,6 +2,13 @@ package com.cloudfoundry.nrv.tstracker.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Esta entidad representa al Lider Técnico del Desarrollador para el Proyecto
  * en el que está asignado
@@ -9,17 +16,25 @@ import java.io.Serializable;
  * @author asalas
  * 
  */
+
+@Entity
+@Table(name = "lider_tecnico")
 public class LiderTecnico implements Serializable {
 
 	/**
 	 * Serial ID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_lider_tecnico")
 	private Long id;
-	
+
+	@Column(name = "nombre")
 	private String nombre;
-	
+
+	@Column(name = "email")
 	private String email;
 
 	public Long getId() {

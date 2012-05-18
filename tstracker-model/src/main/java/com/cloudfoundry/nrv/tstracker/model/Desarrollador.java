@@ -1,6 +1,19 @@
 package com.cloudfoundry.nrv.tstracker.model;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  * Esta entidad representa al Desarrollador (analista, recurso, programador,
@@ -9,22 +22,36 @@ import java.io.Serializable;
  * @author asalas
  * 
  */
+
+@Entity
+@Table(name = "desarrollador")
 public class Desarrollador implements Serializable {
 
 	/**
 	 * Serial ID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_desarrollador")
 	private Long id;
-	
+
+	@Column(name = "nombre")
 	private String nombre;
-	
+
+	@Column(name = "apellidos")
 	private String apellidos;
-	
+
+	@Column(name = "direccion")
 	private String direccion;
-	
+
+	@Column(name = "email")
 	private String email;
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "proyecto_desarrolladores", joinColumns = { @JoinColumn(referencedColumnName = "id_proyecto") }, inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_desarrollador") })
+	List<Proyecto> listaProyectos;
 
 	public Long getId() {
 		return id;
