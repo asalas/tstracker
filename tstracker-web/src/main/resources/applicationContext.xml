@@ -51,11 +51,48 @@
 	<!-- Ends data base source configuration for JPA -->
 
 
+	<!-- DAO'S -->
 	<bean id="clienteDAO" class="com.cloudfoundry.nrv.tstracker.dao.ClienteDAOImpl" />
+	<bean id="desarrolladorDAO" class="com.cloudfoundry.nrv.tstracker.dao.DesarrolladorDAOImpl" />
+	<bean id="liderTecnicoDAO" class="com.cloudfoundry.nrv.tstracker.dao.LiderTecnicoDAOImpl" />
+	<bean id="consultoraDAO" class="com.cloudfoundry.nrv.tstracker.dao.ConsultoraDAOImpl" />
+	<bean id="proyectoDAO" class="com.cloudfoundry.nrv.tstracker.dao.ProyectoDAOImpl" />
+	<bean id="reporteDAO" class="com.cloudfoundry.nrv.tstracker.dao.ReporteDAOImpl" />
+	<bean id="tareaDAO" class="com.cloudfoundry.nrv.tstracker.dao.TareaDAOImpl" />
 
+	<!-- Services -->
 	<bean id="clienteService"
 		class="com.cloudfoundry.nrv.tstracker.service.ClienteServiceImpl">
-		<property  name="clienteDAO" ref="clienteDAO" />
+		<property name="clienteDAO" ref="clienteDAO" />
+	</bean>
+
+	<bean id="desarrolladorService"
+		class="com.cloudfoundry.nrv.tstracker.service.DesarrolladorServiceImpl">
+		<property name="desarrolladorDAO" ref="desarrolladorDAO" />
+	</bean>
+
+	<bean id="liderTecnicoService"
+		class="com.cloudfoundry.nrv.tstracker.service.LiderTecnicoServiceImpl">
+		<property name="liderTecnicoDAO" ref="liderTecnicoDAO" />
+	</bean>
+
+	<bean id="consultoraService"
+		class="com.cloudfoundry.nrv.tstracker.service.ConsultoraServiceImpl">
+		<property name="consultoraDAO" ref="consultoraDAO" />
+	</bean>
+
+	<bean id="proyectoService"
+		class="com.cloudfoundry.nrv.tstracker.service.ProyectoServiceImpl">
+		<property name="proyectoDAO" ref="proyectoDAO" />
+	</bean>
+
+	<bean id="reporteService"
+		class="com.cloudfoundry.nrv.tstracker.service.ReporteServiceImpl">
+		<property name="reporteDAO" ref="reporteDAO" />
+	</bean>
+
+	<bean id="tareaService" class="com.cloudfoundry.nrv.tstracker.service.TareaServiceImpl">
+		<property name="tareaDAO" ref="tareaDAO" />
 	</bean>
 
 	<aop:aspectj-autoproxy />
