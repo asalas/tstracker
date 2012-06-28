@@ -6,10 +6,6 @@
 
 	<display-name>Aplicacion para la administracion de horarios</display-name>
 	
-	<listener>
-		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
-	</listener>
-
 	<filter>
 		<filter-name>ShiroFilter</filter-name>
 		<filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
@@ -19,6 +15,10 @@
 		<filter-name>ShiroFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<listener>
+		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
+	</listener>	
 
 	<servlet>
 		<servlet-name>zkLoader</servlet-name>

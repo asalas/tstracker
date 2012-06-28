@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
- * Esta entidad representa el Proyecto al cual está asignado un Desarrollador
+ * Esta entidad representa el Proyecto al cual esta asignado un Desarrollador
  * 
  * @author asalas
  * 

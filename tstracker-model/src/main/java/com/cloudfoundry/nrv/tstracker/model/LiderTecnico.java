@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Esta entidad representa al Lider Técnico del Desarrollador para el Proyecto
- * en el que está asignado
+ * Esta entidad representa al Lider Tacnico del Desarrollador para el Proyecto
+ * en el que esta asignado
  * 
  * @author asalas
  * 
