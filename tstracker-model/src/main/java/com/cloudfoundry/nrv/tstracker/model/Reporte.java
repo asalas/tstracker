@@ -64,7 +64,9 @@ public class Reporte implements Serializable {
 	private Desarrollador desarrollador;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "reporte_tareas", joinColumns = { @JoinColumn(referencedColumnName = "id_reporte") }, inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_tarea") })
+	@JoinTable(name = "reporte_tareas", 
+				joinColumns = { @JoinColumn(referencedColumnName = "id_reporte") },
+				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_tarea") })
 	private List<Tarea> listaTareas;
 
 	@Enumerated(value = EnumType.STRING)

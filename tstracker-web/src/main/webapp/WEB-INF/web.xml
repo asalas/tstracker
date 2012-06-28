@@ -3,10 +3,23 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
 	<display-name>Aplicacion para la administracion de horarios</display-name>
+	
 	<listener>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
+
+	<filter>
+		<filter-name>ShiroFilter</filter-name>
+		<filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>ShiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<servlet>
 		<servlet-name>zkLoader</servlet-name>
 		<description>The ZK loader for ZUML pages</description>
@@ -34,7 +47,10 @@
 		<servlet-name>auEngine</servlet-name>
 		<url-pattern>/zkau/*</url-pattern>
 	</servlet-mapping>
+
+
 	<welcome-file-list>
 		<welcome-file>index.zul</welcome-file>
 	</welcome-file-list>
+
 </web-app>

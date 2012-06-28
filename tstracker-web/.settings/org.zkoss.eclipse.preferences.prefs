@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
 setting.zk_facet_install_history=<history>\n<module name\="base Module" pid\="zkee-bin-eval-6.0.0" type\="ZK_RELEASE"  >\n<resource prjRelativePath\="src" pseudo\="true"  />\n<resource prjRelativePath\="main" pseudo\="true"  />\n<resource prjRelativePath\="webapp" pseudo\="true"  />\n<resource prjRelativePath\="WEB-INF" pseudo\="true"  />\n<resource size\="272" lastModified\="1336753956567" type\="zxml" pseudo\="false" prjRelativePath\="src/main/webapp/WEB-INF/zk.xml"  />\n<resource size\="1181" lastModified\="1336753963783" type\="wxml" pseudo\="false" prjRelativePath\="src/main/webapp/WEB-INF/web.xml"  />\n</module>\n\n</history>\n
+visualeditor.custom_web_content_path=/tstracker-web/src/main/webapp
+visualeditor.custom_zk_package=zkee-bin-eval-6.0.0

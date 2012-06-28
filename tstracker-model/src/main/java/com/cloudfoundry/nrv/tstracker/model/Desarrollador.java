@@ -50,7 +50,9 @@ public class Desarrollador implements Serializable {
 	private String email;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "proyecto_desarrolladores", joinColumns = { @JoinColumn(referencedColumnName = "id_proyecto") }, inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_desarrollador") })
+	@JoinTable(name = "proyecto_desarrolladores", 
+				joinColumns = { @JoinColumn(referencedColumnName = "id_proyecto") }, 
+				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_desarrollador") })
 	List<Proyecto> listaProyectos;
 
 	public Long getId() {

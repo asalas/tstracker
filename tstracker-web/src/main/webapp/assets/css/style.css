@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+ 
+
+.label_signin {
+    font-size: 11px;
+}
+
+/*size de letra checkboxes sign in*/
+.check_signin .z-checkbox-cnt {
+    font-size: 11px;
+}
+  
+.textbox_signin {
+    font-size: 13px;
+    padding: 5px;
+    width: 190px;
+}
+  
+/*estilo opcional para toolbarbutton*/
+.toolbar_button .z-toolbarbutton-cnt {
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0F3B82;    
+    padding: 8px 10px;
+    -moz-border-radius: 4px 4px 4px 4px;
+}
+  
+.toolBarMenu {
+    width: inherit;
+    height: 36px;
+    border-width: 1px;
+}
+  
+/*Estilos para las listas LI*/
+li {
+    margin-top: 2pt;
+    font-family: Tahoma, Arial, serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+  
+
+/*ESTILO PARA LOS SEPARATORs QUE DIVIDEN HORIZONTALMENTE*/
+  
+.separatorHz {
+    height: 1px;
+    background-color: #CCCCCC;
+}
