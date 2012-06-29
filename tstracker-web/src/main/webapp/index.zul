@@ -7,7 +7,7 @@
 	<div 
 		width="100%" 
 		align="center" 
-		apply="com.cloudfoundry.nrv.tstracker.composer.MarketingComposer">
+		apply="com.cloudfoundry.nrv.tstracker.web.composer.MarketingIndexComposer">
 
 		<vbox width="100%" align="center" style="margin-top: 20px;">
 

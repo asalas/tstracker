@@ -1,4 +1,4 @@
-package com.cloudfoundry.nrv.tstracker.composer;
+package com.cloudfoundry.nrv.tstracker.web.composer;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -8,7 +8,7 @@ import org.zkoss.zul.Popup;
 import org.zkoss.zul.Toolbar;
 import org.zkoss.zul.Toolbarbutton;
 
-public class MarketingComposer extends GenericForwardComposer<Component> {
+public class MarketingIndexComposer extends GenericForwardComposer<Component> {
 
 	/**
 	 * Serial ID

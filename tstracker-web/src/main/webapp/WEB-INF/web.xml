@@ -4,7 +4,7 @@
 
 <web-app>
 
-	<display-name>Aplicacion para la administracion de horarios</display-name>
+	<display-name>Aplicacion para la administracion de horarios</display-name>	
 	
 	<filter>
 		<filter-name>ShiroFilter</filter-name>
