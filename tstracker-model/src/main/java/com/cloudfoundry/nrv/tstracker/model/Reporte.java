@@ -14,8 +14,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -49,7 +47,7 @@ public class Reporte implements Serializable {
 	private Date fechaInicial;
 
 	@Temporal(value = TemporalType.DATE)
-	@Column(name = "fecha_inicial")
+	@Column(name = "fecha_final")
 	private Date fechaFinal;
 
 	@Temporal(value = TemporalType.DATE)
@@ -57,23 +55,16 @@ public class Reporte implements Serializable {
 	private Date fechaEntrega;
 
 	@Column(name = "no_solicitud")
-	private String noSolicitud;
+	private String noSolicitud;	
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_desarrollador", referencedColumnName = "id_desarrollador")
-	private Desarrollador desarrollador;
-
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "reporte_tareas", 
-				joinColumns = { @JoinColumn(referencedColumnName = "id_reporte") },
-				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_tarea") })
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Tarea> listaTareas;
 
 	@Enumerated(value = EnumType.STRING)
 	@Column(name = "estado")
 	private EstadoEnum estado;
 
-	@OneToMany(fetch = FetchType.EAGER, targetEntity = Proyecto.class)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_proyecto", referencedColumnName = "id_proyecto")
 	private Proyecto proyecto;
 
@@ -107,14 +98,6 @@ public class Reporte implements Serializable {
 
 	public void setNoSolicitud(String noSolicitud) {
 		this.noSolicitud = noSolicitud;
-	}
-
-	public Desarrollador getDesarrollador() {
-		return desarrollador;
-	}
-
-	public void setDesarrollador(Desarrollador desarrollador) {
-		this.desarrollador = desarrollador;
 	}
 
 	public List<Tarea> getListaTareas() {

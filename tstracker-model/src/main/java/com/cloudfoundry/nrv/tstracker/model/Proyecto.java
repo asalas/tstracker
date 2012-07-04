@@ -1,6 +1,8 @@
 package com.cloudfoundry.nrv.tstracker.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -37,7 +40,7 @@ public class Proyecto implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
 	private LiderTecnico liderTecnico;
 
 	@Column(name = "duracion_meses")
@@ -45,7 +48,11 @@ public class Proyecto implements Serializable {
 
 	@Enumerated(value = EnumType.STRING)
 	@Column(name = "estado")
-	private EstadoEnum estado;
+	private EstadoEnum estado;	
+	
+	@ManyToMany(mappedBy = "listaProyectos" , fetch = FetchType.LAZY)
+	private Set<Desarrollador> listaDesarrolladores = new HashSet<Desarrollador>();
+	
 
 	public EstadoEnum getEstado() {
 		return estado;
@@ -85,6 +92,14 @@ public class Proyecto implements Serializable {
 
 	public void setDuracionMeses(Integer duracionMeses) {
 		this.duracionMeses = duracionMeses;
+	}
+
+	public Set<Desarrollador> getListaDesarrolladores() {
+		return listaDesarrolladores;
+	}
+
+	public void setListaDesarrolladores(Set<Desarrollador> listaDesarrolladores) {
+		this.listaDesarrolladores = listaDesarrolladores;
 	}
 
 }

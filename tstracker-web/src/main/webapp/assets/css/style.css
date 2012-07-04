@@ -2,7 +2,8 @@
  
 
 .label_signin {
-    font-size: 11px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 /*size de letra checkboxes sign in*/
@@ -11,7 +12,7 @@
 }
   
 .textbox_signin {
-    font-size: 13px;
+    font-size: 14px;
     padding: 5px;
     width: 190px;
 }
@@ -47,3 +48,5 @@ li {
     height: 1px;
     background-color: #CCCCCC;
 }
+
+

@@ -1,4 +1,4 @@
-package com.cloudfoundry.nrv.tstracker.web.util;
+package com.cloudfoundry.nrv.tstracker.web.spring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -17,6 +17,7 @@ import com.cloudfoundry.nrv.tstracker.service.LiderTecnicoService;
 import com.cloudfoundry.nrv.tstracker.service.ProyectoService;
 import com.cloudfoundry.nrv.tstracker.service.ReporteService;
 import com.cloudfoundry.nrv.tstracker.service.TareaService;
+import com.cloudfoundry.nrv.tstracker.service.security.AuthService;
 
 public class BeansFactory {
 
@@ -53,12 +54,12 @@ public class BeansFactory {
 		ProyectoDAO proyectoDAO = (ProyectoDAO) context.getBean("proyectoDAO");
 		return proyectoDAO;
 	}
-	
+
 	public static TareaDAO getTareaDAO() {
 		TareaDAO tareaDAO = (TareaDAO) context.getBean("tareaDAO");
 		return tareaDAO;
 	}
-	
+
 	public static ReporteDAO getReporteDAO() {
 		ReporteDAO reporteDAO = (ReporteDAO) context.getBean("reporteDAO");
 		return reporteDAO;
@@ -69,7 +70,7 @@ public class BeansFactory {
 				.getBean("clienteService");
 		return clienteService;
 	}
-	
+
 	public static DesarrolladorService getDesarrolladorService() {
 		DesarrolladorService desarrolladorService = (DesarrolladorService) context
 				.getBean("desarrolladorService");
@@ -89,18 +90,26 @@ public class BeansFactory {
 	}
 
 	public static ProyectoService getProyectoService() {
-		ProyectoService proyectoService = (ProyectoService) context.getBean("proyectoService");
+		ProyectoService proyectoService = (ProyectoService) context
+				.getBean("proyectoService");
 		return proyectoService;
 	}
-	
+
 	public static TareaService getTareaService() {
-		TareaService tareaService = (TareaService) context.getBean("tareaService");
+		TareaService tareaService = (TareaService) context
+				.getBean("tareaService");
 		return tareaService;
 	}
-	
+
 	public static ReporteService getReporteService() {
-		ReporteService reporteService = (ReporteService) context.getBean("reporteService");
+		ReporteService reporteService = (ReporteService) context
+				.getBean("reporteService");
 		return reporteService;
+	}
+
+	public static AuthService getAuthService() {
+		AuthService authService = (AuthService) context.getBean("authService");
+		return authService;
 	}
 
 }

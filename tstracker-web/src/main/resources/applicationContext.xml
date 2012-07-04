@@ -85,5 +85,8 @@
 		<property name="tareaDAO" ref="tareaDAO" />
 	</bean>
 
-	<aop:aspectj-autoproxy />	
+	<bean id="authService"
+		class="com.cloudfoundry.nrv.tstracker.service.security.AuthServiceImpl" />
+
+	<aop:aspectj-autoproxy />
 </beans>

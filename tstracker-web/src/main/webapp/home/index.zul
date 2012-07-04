@@ -1,0 +1,92 @@
+<zk xmlns:x="xhtml">
+	<style>
+		.nav_tabs .z-tabpanel { padding: 0; border-bottom: 0 none;}
+		.nav_tabs .z-tabpanels .z-toolbarbutton-cnt { padding: 4px;}
+		.nav_category { cursor:pointer; } .nav_text { color: #696569;
+		font-size : 24px; font-weight: bold;}
+	</style>
+
+	<separator height="30px" />
+
+	<tabbox width="100%" sclass="nav_tabs" apply="com.cloudfoundry.nrv.tstracker.web.composer.home.TstrackerHomeComposer">
+		<tabs id="tabs" width="100%">
+			<tab label="Our Product"
+				onSelect="UpdateCategory(self.label)" />
+			<tab label="Live Demo"
+				onSelect="UpdateCategory(self.label)" />
+			<tab label="Online Documentation"
+				onSelect="UpdateCategory(self.label)" />
+		</tabs>
+		<toolbar>
+			<toolbarbutton id="btnShowUserName"/>
+			<toolbarbutton
+				id="btnConfig"
+				image="/assets/images/Wheels16.png" tooltiptext="Configuración"/>
+			<toolbarbutton
+				id="btnLogout"
+				image="/assets/images/Login_out16.png" tooltiptext="Salir"/>		
+		</toolbar>
+		<tabpanels>
+			<tabpanel>
+				<toolbar width="100%">
+					<toolbarbutton label="Product 1"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Product 2"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Product 3"
+						onClick="UpdateSubPage(self.label)" />
+				</toolbar>
+			</tabpanel>
+			<tabpanel>
+				<toolbar width="100%">
+					<toolbarbutton label="Live Demo 1"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Live Demo 2"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Live Demo 3"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Live Demo 4"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Live Demo 5"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Live Demo 6"
+						onClick="UpdateSubPage(self.label)" />
+				</toolbar>
+			</tabpanel>
+			<tabpanel>
+				<toolbar width="100%">
+					<toolbarbutton label="Documentation 1"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Documentation 2"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Documentation 3"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Documentation 4"
+						onClick="UpdateSubPage(self.label)" />
+					<toolbarbutton label="Documentation 5"
+						onClick="UpdateSubPage(self.label)" />
+				</toolbar>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+	<separator height="30px"></separator>
+	<zscript><![CDATA[
+	void UpdateCategory(String category) {
+		current_category.setValue(category);
+		current_subpage.setValue("Index");
+	}
+	void UpdateSubPage(String sub) {
+		current_subpage.setValue(sub);
+	}
+]]></zscript>
+	<hlayout style="border: 1px solid red;">
+		<label id="current_category" sclass="nav_text nav_category"
+			onClick='UpdateSubPage("Index")'>
+			Our Product
+		</label>
+		<label sclass="nav_text">-</label>
+		<label id="current_subpage" sclass="nav_text">Index</label>
+	</hlayout>
+
+
+</zk>

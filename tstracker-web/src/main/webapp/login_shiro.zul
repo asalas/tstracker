@@ -15,7 +15,7 @@
         <grid>
             <rows>
                 <row>User: <textbox id="u" name="user"/></row>
-                <row>Password: <textbox id="p" type="password" name="pass"/></row>
+                <row>Password: <textbox id="p" name="pass" type="password"/></row>
                 <row><checkbox id="r" name="remember"/>Remember</row>
                 <row spans="2">
                     <hbox>

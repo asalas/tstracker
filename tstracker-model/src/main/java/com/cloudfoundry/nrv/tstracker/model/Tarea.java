@@ -5,9 +5,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,7 +34,7 @@ public class Tarea implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_actividad")
+	@Column(name = "id_tarea")
 	private Long id;
 
 	@Temporal(value = TemporalType.DATE)
@@ -49,6 +52,10 @@ public class Tarea implements Serializable {
 
 	@Column(name = "observaciones")
 	private String observaciones;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_reporte", referencedColumnName = "id_reporte")
+	private Reporte reporte;
 
 	public Long getId() {
 		return id;
@@ -96,6 +103,14 @@ public class Tarea implements Serializable {
 
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
+	}
+
+	public Reporte getReporte() {
+		return reporte;
+	}
+
+	public void setReporte(Reporte reporte) {
+		this.reporte = reporte;
 	}
 
 }

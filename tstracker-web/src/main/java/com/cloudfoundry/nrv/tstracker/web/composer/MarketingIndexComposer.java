@@ -27,7 +27,7 @@ public class MarketingIndexComposer extends GenericForwardComposer<Component> {
 	}	
 	
 	public void onCreate$toolBarMain(Event event) {
-		this.loginPopup = (Popup) Executions.createComponents("/login.zul", null, null);
+		this.loginPopup = (Popup) Executions.createComponents("/templates/login.zul", null, null);
 		this.btnLogin.setPopup(loginPopup);
 	}
 	

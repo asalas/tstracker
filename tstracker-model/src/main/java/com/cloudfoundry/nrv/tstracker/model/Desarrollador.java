@@ -1,6 +1,7 @@
 package com.cloudfoundry.nrv.tstracker.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -49,11 +50,11 @@ public class Desarrollador implements Serializable {
 	@Column(name = "email")
 	private String email;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "proyecto_desarrolladores", 
-				joinColumns = { @JoinColumn(referencedColumnName = "id_proyecto") }, 
-				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_desarrollador") })
-	List<Proyecto> listaProyectos;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "desarrolladores_proyecto", 
+				joinColumns = { @JoinColumn(referencedColumnName = "id_desarrollador", nullable = false, updatable = false) }, 
+				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_proyecto", nullable = false, updatable = false) })
+	private List<Proyecto> listaProyectos = new ArrayList<Proyecto>();
 
 	public Long getId() {
 		return id;
@@ -93,6 +94,14 @@ public class Desarrollador implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Proyecto> getListaProyectos() {
+		return listaProyectos;
+	}
+
+	public void setListaProyectos(List<Proyecto> listaProyectos) {
+		this.listaProyectos = listaProyectos;
 	}
 
 }

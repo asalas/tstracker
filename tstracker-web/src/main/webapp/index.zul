@@ -1,58 +1,62 @@
-<?page title="TsTracker TimeSheet Tool"?>
+<?page title="tstracker Time-tracking tool"?>
 
 <zk>
 
-	<style src="/assets/css/style.css" />	
-
-	<div 
-		width="100%" 
-		align="center" 
+	<style src="/assets/css/style.css" />
+	<separator height="30px" />
+	<div align="center"
 		apply="com.cloudfoundry.nrv.tstracker.web.composer.MarketingIndexComposer">
 
-		<vbox width="100%" align="center" style="margin-top: 20px;">
+		<vbox align="center">
 
-			<toolbar 
-				id="toolBarMain" 
-				sclass="toolBarMenu">
-				<toolbarbutton
-					sclass="toolbar_button"
-					label="¿Qué es?"
+			<toolbar id="toolBarMain" sclass="toolBarMenu">
+				<toolbarbutton sclass="toolbar_button" label="¿Qué es?"
 					image="/assets/images/Faq-icon.png" />
-				<toolbarbutton
-					id="btnLogin"
-					sclass="toolbar_button" 
-					label="Iniciar sesión"
-					image="/assets/images/Login-in-icon.png"
-					onClick="@command('doLoginPopup')" />
+				<toolbarbutton id="btnLogin" sclass="toolbar_button"
+					label="Iniciar sesión" image="/assets/images/Login-in-icon.png" />
 			</toolbar>
-			
-			<hbox id="hboxMainLayout" spacing="88px" style="margin: 30px;">
+
+			<hbox id="hboxMainLayout" spacing="88px"
+				style="margin: 30px;">
 				<vbox width="420px">
+
+					<html style="color:red; font-family: arial,sans-serif;"
+						if="${not empty requestScope.loginFailure}">
+						
+						<![CDATA[ Error al iniciar sesión, verifique sus credenciales. ]]>
+						
+    				</html>
+
 					<label id="lblDescription"
 						style="font-size: 100%; font-weight: bold; line-height: 1.55; color: #3399CC;"
 						height="88px">
-						TsTracker TimeSheet Tool es una herramienta para la administración de la captura de actividades de proyectos de IT
+						tstracker es una herramienta de Time-tracking para
+						la administración de la captura de actividades
+						de proyectos de TI
 					</label>
 
 					<vbox style="padding-left: 25px; margin-top: 25px;"
 						spacing="1px">
 						<toolbarbutton id="btnLearnMore"
-							image="assets/images/bullet-blue-icon.png" label="Organice sus proyectos" />
+							image="assets/images/bullet-blue-icon.png"
+							label="Organice sus proyectos" />
 						<toolbarbutton id="btnResolveProblem"
-							image="assets/images/bullet-blue-icon.png" label="Agregue sus actividades diarias" />
+							image="assets/images/bullet-blue-icon.png"
+							label="Agregue sus actividades diarias" />
 						<toolbarbutton id="btnCollaboration"
-							image="assets/images/bullet-blue-icon.png" label="Genere reportes y envielos por correo" />
+							image="assets/images/bullet-blue-icon.png"
+							label="Genere reportes y envielos por correo" />
 					</vbox>
 				</vbox>
-				
+
 				<image src="assets/images/Time-Machine-Drive-icon.png" />
-			
-			</hbox>			
-			
-			<separator sclass="separatorHz" style="margin-top: 60px;" />		
+
+			</hbox>
+
+			<separator sclass="separatorHz" style="margin-top: 60px;" />
 
 		</vbox>
-		
+
 	</div>
 
 </zk>
