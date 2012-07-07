@@ -3,7 +3,9 @@
 <zk>
 
 	<style src="/assets/css/style.css" />
+	
 	<separator height="30px" />
+	
 	<div align="center"
 		apply="com.cloudfoundry.nrv.tstracker.web.composer.MarketingIndexComposer">
 

@@ -1,6 +1,5 @@
 package com.cloudfoundry.nrv.tstracker.service.security;
 
-import java.util.Map;
 
 
 /**
@@ -12,8 +11,6 @@ import java.util.Map;
 public interface AuthService {
 	
 	public String getUserName();
-	
-	public Map<String, String> getUserLoginAttributes();
 	
 	public void logOut();
 	

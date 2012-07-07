@@ -1,6 +1,40 @@
+<?page title="tstracker Time-tracking tool"?>
+
 <zk>
-	<window title="whoops" border="normal" width="350px" height="220px">
-		<image src="/img/access_denied.png"></image> Access denied !!!<separator></separator>
-		<button id="home" label="home" onClick='execution.sendRedirect("/home.zul")'></button>
-	</window>
+
+	<style src="/assets/css/style.css" />
+	
+	<separator height="30px" />
+	
+	<div align="center">
+
+		<vbox align="center">
+
+			<toolbar id="toolBarMain" sclass="toolBarMenu">
+				<toolbarbutton label="Acceso Denegado" image="/assets/images/Prohibit16.png" sclass="toolbar_button" />
+			</toolbar>
+
+			<hbox id="hboxMainLayout" spacing="88px"
+				style="margin: 30px;">
+				<vbox width="500px">				
+
+					<label id="lblDescription"
+						style="font-size: 30px; font-weight: bold; line-height: 1.55; color: red;"
+						height="88px">
+						No tiene los privilegios suficientes para acceder a este contenido.
+					</label>
+					
+					<button label="Regresar" image="/assets/images/Accept16.png" onClick='execution.sendRedirect("/home/")' />
+					
+				</vbox>
+
+
+			</hbox>
+
+			<separator sclass="separatorHz" style="margin-top: 60px;" />
+
+		</vbox>
+
+	</div>
+
 </zk>

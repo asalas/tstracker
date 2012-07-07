@@ -2,7 +2,12 @@ package com.cloudfoundry.nrv.tstracker.dao;
 
 import com.cloudfoundry.nrv.tstracker.model.Desarrollador;
 
-public class DesarrolladorDAOImpl extends GenericDAOImpl<Desarrollador, Long> implements
+/**
+ * 
+ * @author asalas
+ *
+ */
+public class DesarrolladorDAOImpl extends GenericDAOImpl<Desarrollador, String> implements
 		DesarrolladorDAO {
 
 }

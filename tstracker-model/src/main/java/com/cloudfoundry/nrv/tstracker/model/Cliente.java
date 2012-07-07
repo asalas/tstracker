@@ -37,6 +37,9 @@ public class Cliente implements Serializable {
 
 	@Column(name = "direccion")
 	private String direccion;
+	
+	@Column(name="telefono")
+	private String telefono;
 
 	public Long getId() {
 		return id;
@@ -65,6 +68,14 @@ public class Cliente implements Serializable {
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this);
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 }

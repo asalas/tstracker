@@ -2,9 +2,7 @@ package com.cloudfoundry.nrv.tstracker.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -15,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -54,11 +51,11 @@ public class Reporte implements Serializable {
 	@Column(name = "fecha_entrega")
 	private Date fechaEntrega;
 
-	@Column(name = "no_solicitud")
-	private String noSolicitud;	
+	@Column(name = "num_solicitud")
+	private String numSolicitud;	
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Tarea> listaTareas;
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	private List<Tarea> listaTareas;
 
 	@Enumerated(value = EnumType.STRING)
 	@Column(name = "estado")
@@ -92,21 +89,21 @@ public class Reporte implements Serializable {
 		this.fechaFinal = fechaFinal;
 	}
 
-	public String getNoSolicitud() {
-		return noSolicitud;
+	public String getNumSolicitud() {
+		return numSolicitud;
 	}
 
-	public void setNoSolicitud(String noSolicitud) {
-		this.noSolicitud = noSolicitud;
+	public void setNumSolicitud(String noSolicitud) {
+		this.numSolicitud = noSolicitud;
 	}
 
-	public List<Tarea> getListaTareas() {
-		return listaTareas;
-	}
-
-	public void setListaTareas(List<Tarea> listaTareas) {
-		this.listaTareas = listaTareas;
-	}
+//	public List<Tarea> getListaTareas() {
+//		return listaTareas;
+//	}
+//
+//	public void setListaTareas(List<Tarea> listaTareas) {
+//		this.listaTareas = listaTareas;
+//	}
 
 	public EstadoEnum getEstado() {
 		return estado;

@@ -1,6 +1,7 @@
 package com.cloudfoundry.nrv.tstracker.service;
 
 import com.cloudfoundry.nrv.tstracker.dao.DesarrolladorDAO;
+import com.cloudfoundry.nrv.tstracker.model.Desarrollador;
 
 /**
  * Implementacion del servicio de la entidad Desarrollador
@@ -11,6 +12,11 @@ import com.cloudfoundry.nrv.tstracker.dao.DesarrolladorDAO;
 public class DesarrolladorServiceImpl implements DesarrolladorService {
 
 	private DesarrolladorDAO desarrolladorDAO;
+	
+	@Override
+	public Desarrollador findByNombreUsuario(String nombreUsuario) {
+		return this.desarrolladorDAO.findById(nombreUsuario);
+	}
 
 	public DesarrolladorDAO getDesarrolladorDAO() {
 		return desarrolladorDAO;

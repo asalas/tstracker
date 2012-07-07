@@ -12,8 +12,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -40,7 +41,8 @@ public class Proyecto implements Serializable {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_lider_tecnico", referencedColumnName="id_lider_tecnico")
 	private LiderTecnico liderTecnico;
 
 	@Column(name = "duracion_meses")
@@ -51,8 +53,7 @@ public class Proyecto implements Serializable {
 	private EstadoEnum estado;	
 	
 	@ManyToMany(mappedBy = "listaProyectos" , fetch = FetchType.LAZY)
-	private Set<Desarrollador> listaDesarrolladores = new HashSet<Desarrollador>();
-	
+	private Set<Desarrollador> listaDesarrolladores = new HashSet<Desarrollador>();	
 
 	public EstadoEnum getEstado() {
 		return estado;
@@ -101,5 +102,4 @@ public class Proyecto implements Serializable {
 	public void setListaDesarrolladores(Set<Desarrollador> listaDesarrolladores) {
 		this.listaDesarrolladores = listaDesarrolladores;
 	}
-
 }

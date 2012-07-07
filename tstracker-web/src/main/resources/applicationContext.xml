@@ -49,6 +49,9 @@
 	<bean id="proyectoDAO" class="com.cloudfoundry.nrv.tstracker.dao.ProyectoDAOImpl" />
 	<bean id="reporteDAO" class="com.cloudfoundry.nrv.tstracker.dao.ReporteDAOImpl" />
 	<bean id="tareaDAO" class="com.cloudfoundry.nrv.tstracker.dao.TareaDAOImpl" />
+	<bean id="usuarioDAO" class="com.cloudfoundry.nrv.tstracker.dao.UsuarioDAOImpl" />
+	<bean id="rolDAO" class="com.cloudfoundry.nrv.tstracker.dao.RolDAOImpl" />
+	
 
 	<!-- Services -->
 	<bean id="clienteService"
