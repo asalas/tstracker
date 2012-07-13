@@ -10,6 +10,6 @@ import com.cloudfoundry.nrv.tstracker.model.Desarrollador;
  */
 public interface DesarrolladorService {
 
-	public Desarrollador findByNombreUsuario(String nombreUsuario);
+	public Desarrollador findById(String nombreUsuario);
 	
 }

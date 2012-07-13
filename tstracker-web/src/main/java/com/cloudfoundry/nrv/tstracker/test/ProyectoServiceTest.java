@@ -31,7 +31,7 @@ public class ProyectoServiceTest extends TestCase {
 		Desarrollador developer = new Desarrollador();
 		developer.setNombreUsuario("asalas");
 		
-		Desarrollador dbDeveloper = this.desarrolladorService.findByNombreUsuario(developer.getNombreUsuario());
+		Desarrollador dbDeveloper = this.desarrolladorService.findById(developer.getNombreUsuario());
 		if(dbDeveloper != null) {
 			List<Proyecto> listaProyectos = dbDeveloper.getListaProyectos();
 		}

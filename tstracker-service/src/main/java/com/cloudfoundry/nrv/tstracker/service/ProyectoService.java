@@ -12,6 +12,18 @@ import com.cloudfoundry.nrv.tstracker.model.Proyecto;
  */
 public interface ProyectoService {
 	
+	public void persist(Proyecto proyecto);
+	
+	public void merge(Proyecto proyecto);
+	
+	public void save(Proyecto proyecto);
+	
+	public void remove(Proyecto proyecto);
+	
+	public Proyecto findById(Long proyectoId);
+	
+	public List<Proyecto> getAll();
+	
 	public List<Proyecto> getAllByDesarrollador(Desarrollador desarrollador);
 
 }

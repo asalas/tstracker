@@ -14,7 +14,7 @@ public class DesarrolladorServiceImpl implements DesarrolladorService {
 	private DesarrolladorDAO desarrolladorDAO;
 	
 	@Override
-	public Desarrollador findByNombreUsuario(String nombreUsuario) {
+	public Desarrollador findById(String nombreUsuario) {
 		return this.desarrolladorDAO.findById(nombreUsuario);
 	}
 
