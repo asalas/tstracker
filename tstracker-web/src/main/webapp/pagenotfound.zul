@@ -1,0 +1,40 @@
+<?page title="tstracker Time-tracking tool"?>
+
+<zk>
+
+	<style src="/assets/css/style.css" />
+	
+	<separator height="30px" />
+	
+	<div align="center">
+
+		<vbox align="center">
+
+			<toolbar id="toolBarMain" sclass="toolBarMenu">
+				<toolbarbutton label="Acceso Denegado" image="/assets/images/Prohibit16.png" sclass="toolbar_button" />
+			</toolbar>
+
+			<hbox id="hboxMainLayout" spacing="88px"
+				style="margin: 30px;">
+				<vbox width="500px">				
+
+					<label id="lblDescription"
+						style="font-size: 30px; font-weight: bold; line-height: 1.55; color: red;"
+						height="88px">
+						La página solicitada no existe.
+					</label>
+					
+					<button label="Regresar" image="/assets/images/Accept16.png" onClick='execution.sendRedirect("/home/")' />
+					
+				</vbox>
+
+
+			</hbox>
+
+			<separator sclass="separatorHz" style="margin-top: 60px;" />
+
+		</vbox>
+
+	</div>
+
+</zk>

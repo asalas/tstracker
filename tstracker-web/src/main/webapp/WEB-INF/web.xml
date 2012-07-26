@@ -6,16 +6,6 @@
 
 	<display-name>Aplicacion para la administracion de horarios</display-name>
 
-	<filter>
-		<filter-name>ShiroFilter</filter-name>
-		<filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>ShiroFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
 	<listener>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>

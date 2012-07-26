@@ -8,5 +8,6 @@ import com.cloudfoundry.nrv.tstracker.model.Usuario;
  *
  */
 public interface UsuarioDAO extends GenericDAO<Usuario, String> {
-
+	
+	
 }

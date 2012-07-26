@@ -10,4 +10,5 @@ import com.cloudfoundry.nrv.tstracker.model.Usuario;
 public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, String> implements
 		UsuarioDAO {
 
+	
 }

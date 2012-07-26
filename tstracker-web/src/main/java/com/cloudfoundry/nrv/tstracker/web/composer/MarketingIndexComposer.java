@@ -9,9 +9,6 @@ import org.zkoss.zul.Popup;
 import org.zkoss.zul.Toolbar;
 import org.zkoss.zul.Toolbarbutton;
 
-import com.cloudfoundry.nrv.tstracker.service.security.AuthService;
-import com.cloudfoundry.nrv.tstracker.web.spring.BeansFactory;
-
 public class MarketingIndexComposer extends GenericForwardComposer<Component> {
 
 	/**
@@ -19,7 +16,6 @@ public class MarketingIndexComposer extends GenericForwardComposer<Component> {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private AuthService authService;
 
 	public Popup loginPopup;	
 	public Toolbar toolBarMain;	
@@ -30,9 +26,9 @@ public class MarketingIndexComposer extends GenericForwardComposer<Component> {
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		
-		this.authService = BeansFactory.getAuthService();
 		
-		String userName = this.authService.getUserName();
+		
+		String userName = "jeje";
 		
 		if(StringUtils.isNotEmpty(userName)) {
 			this.execution.sendRedirect("home/");

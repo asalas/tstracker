@@ -17,7 +17,6 @@ import com.cloudfoundry.nrv.tstracker.service.LiderTecnicoService;
 import com.cloudfoundry.nrv.tstracker.service.ProyectoService;
 import com.cloudfoundry.nrv.tstracker.service.ReporteService;
 import com.cloudfoundry.nrv.tstracker.service.TareaService;
-import com.cloudfoundry.nrv.tstracker.service.security.AuthService;
 
 public class BeansFactory {
 
@@ -106,10 +105,4 @@ public class BeansFactory {
 				.getBean("reporteService");
 		return reporteService;
 	}
-
-	public static AuthService getAuthService() {
-		AuthService authService = (AuthService) context.getBean("authService");
-		return authService;
-	}
-
 }

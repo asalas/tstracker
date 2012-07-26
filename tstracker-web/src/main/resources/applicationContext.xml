@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
                         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                         http://www.springframework.org/schema/tx
@@ -9,8 +10,12 @@
                         http://www.springframework.org/schema/aop
                         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
                         http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+                        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                        http://www.springframework.org/schema/security
+                        http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
+	<aop:aspectj-autoproxy />
+	
 	<!-- Starts data base source configuration for JPA -->
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -88,13 +93,82 @@
 		<property name="tareaDAO" ref="tareaDAO" />
 	</bean>
 
-	<bean id="authService"
-		class="com.cloudfoundry.nrv.tstracker.service.security.AuthServiceImpl" />
-
 	<bean id="usuarioService"
 		class="com.cloudfoundry.nrv.tstracker.service.UsuarioServiceImpl">
 		<property name="usuarioDAO" ref="usuarioDAO" />
 	</bean>
 
-	<aop:aspectj-autoproxy />
+	<!--  SPRING SECURITY -->
+	<security:global-method-security
+        secured-annotations="enabled">
+    </security:global-method-security>
+    
+    <security:http
+        auto-config="true"
+        access-decision-manager-ref="accessDecisionManager"
+        access-denied-page="pagenotfound.zul">
+
+        <!-- Todo lo que está abajo de "/home/" sólo puede ser accedido por usuarios autenticados con rol DEVELOPER -->
+        <security:intercept-url
+            pattern="/home/**"
+            access="ROL_DEVELOPER" />
+        
+        <!-- Lo que debe excluirse 
+        <security:intercept-url
+            pattern="/content/support/**" filters="none"/> -->
+
+         <!-- Si entro directamente a login y me autentico correctamente,mandame a home -->
+        <security:form-login
+            login-processing-url="/j_spring_security_check"
+            login-page="/"
+            authentication-success-handler-ref="loginSuccessHandler"
+            authentication-failure-handler-ref="loginFailureHandler" />
+
+        <security:logout
+            logout-url="/content/common/logout.jsf"
+            logout-success-url="/content/common/mapa/MapaInteractivo.jsf" />
+
+        <security:session-management invalid-session-url="/" />
+
+        <security:remember-me key="myKey"/>
+
+    </security:http>
+    
+    <!-- Configura el gestor de decisiones de autenticación. -->
+    <bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+        <!-- Define los participantes en el proceso de autenticación: -->
+        <property name="decisionVoters">
+            <list>
+                <ref bean="decisorRoles" />
+                <ref bean="decisorAuthentication" />
+            </list>
+        </property>
+    </bean>
+    
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="usuarioService">
+            <security:password-encoder ref="passwordEncoder" />
+        </security:authentication-provider>
+    </security:authentication-manager>
+    
+    <!-- Decisor de roles, necesario para tener nombres de roles personalizados -->
+    <bean id="decisorRoles" class="org.springframework.security.access.vote.RoleVoter">
+        <property name="rolePrefix" value="ROL_" />
+    </bean>
+
+    <bean id="decisorAuthentication" class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+    
+    <bean id="loginSuccessHandler" class="com.cloudfoundry.nrv.tstracker.web.security.LoginSuccessHandler" >
+        <property name="defaultTargetUrl" value="/home" />
+    </bean>
+
+    <bean id="loginFailureHandler" class="com.cloudfoundry.nrv.tstracker.web.security.LoginFailureHander" >
+        <property name="defaultFailureUrl" value="/" />
+    </bean>
+    
+    <bean id="passwordEncoder" 
+    	class="org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder">
+        <constructor-arg value="MD5" />
+    </bean>
+	
 </beans>
