@@ -8,7 +8,7 @@
 
 	<separator height="30px" />
 
-	<tabbox width="100%" sclass="nav_tabs" apply="com.cloudfoundry.nrv.tstracker.web.composer.home.TstrackerHomeComposer">
+	<tabbox width="100%" sclass="nav_tabs" apply="com.cloudfoundry.tstracker.web.composer.home.HomeComposer">
 		<tabs id="tabs" width="100%">
 			<tab label="Our Product"
 				onSelect="UpdateCategory(self.label)" />

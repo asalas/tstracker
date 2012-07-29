@@ -11,7 +11,7 @@
 		<vbox align="center">
 
 			<toolbar id="toolBarMain" sclass="toolBarMenu">
-				<toolbarbutton label="Acceso Denegado" image="/assets/images/Prohibit16.png" sclass="toolbar_button" />
+				<toolbarbutton label="Página inexistente" image="/assets/images/Prohibit16.png" sclass="toolbar_button" />
 			</toolbar>
 
 			<hbox id="hboxMainLayout" spacing="88px"
@@ -22,12 +22,9 @@
 						style="font-size: 30px; font-weight: bold; line-height: 1.55; color: red;"
 						height="88px">
 						La página solicitada no existe.
-					</label>
-					
-					<button label="Regresar" image="/assets/images/Accept16.png" onClick='execution.sendRedirect("/home/")' />
+					</label>				
 					
 				</vbox>
-
 
 			</hbox>
 

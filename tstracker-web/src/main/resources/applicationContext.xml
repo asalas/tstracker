@@ -47,71 +47,72 @@
 
 
 	<!-- DAO'S -->
-	<bean id="clienteDAO" class="com.cloudfoundry.nrv.tstracker.dao.ClienteDAOImpl" />
-	<bean id="desarrolladorDAO" class="com.cloudfoundry.nrv.tstracker.dao.DesarrolladorDAOImpl" />
-	<bean id="liderTecnicoDAO" class="com.cloudfoundry.nrv.tstracker.dao.LiderTecnicoDAOImpl" />
-	<bean id="consultoraDAO" class="com.cloudfoundry.nrv.tstracker.dao.ConsultoraDAOImpl" />
-	<bean id="proyectoDAO" class="com.cloudfoundry.nrv.tstracker.dao.ProyectoDAOImpl" />
-	<bean id="reporteDAO" class="com.cloudfoundry.nrv.tstracker.dao.ReporteDAOImpl" />
-	<bean id="tareaDAO" class="com.cloudfoundry.nrv.tstracker.dao.TareaDAOImpl" />
-	<bean id="usuarioDAO" class="com.cloudfoundry.nrv.tstracker.dao.UsuarioDAOImpl" />
-	<bean id="rolDAO" class="com.cloudfoundry.nrv.tstracker.dao.RolDAOImpl" />
+	<bean id="clienteDAO" class="com.cloudfoundry.tstracker.dao.ClienteDAOImpl" />
+	<bean id="desarrolladorDAO" class="com.cloudfoundry.tstracker.dao.DesarrolladorDAOImpl" />
+	<bean id="liderTecnicoDAO" class="com.cloudfoundry.tstracker.dao.LiderTecnicoDAOImpl" />
+	<bean id="consultoraDAO" class="com.cloudfoundry.tstracker.dao.ConsultoraDAOImpl" />
+	<bean id="proyectoDAO" class="com.cloudfoundry.tstracker.dao.ProyectoDAOImpl" />
+	<bean id="reporteDAO" class="com.cloudfoundry.tstracker.dao.ReporteDAOImpl" />
+	<bean id="tareaDAO" class="com.cloudfoundry.tstracker.dao.TareaDAOImpl" />
+	<bean id="usuarioDAO" class="com.cloudfoundry.tstracker.dao.UsuarioDAOImpl" />
+	<bean id="rolDAO" class="com.cloudfoundry.tstracker.dao.RolDAOImpl" />
 
 
 	<!-- Services -->
 	<bean id="clienteService"
-		class="com.cloudfoundry.nrv.tstracker.service.ClienteServiceImpl">
+		class="com.cloudfoundry.tstracker.service.ClienteServiceImpl">
 		<property name="clienteDAO" ref="clienteDAO" />
 	</bean>
 
 	<bean id="desarrolladorService"
-		class="com.cloudfoundry.nrv.tstracker.service.DesarrolladorServiceImpl">
+		class="com.cloudfoundry.tstracker.service.DesarrolladorServiceImpl">
 		<property name="desarrolladorDAO" ref="desarrolladorDAO" />
 	</bean>
 
 	<bean id="liderTecnicoService"
-		class="com.cloudfoundry.nrv.tstracker.service.LiderTecnicoServiceImpl">
+		class="com.cloudfoundry.tstracker.service.LiderTecnicoServiceImpl">
 		<property name="liderTecnicoDAO" ref="liderTecnicoDAO" />
 	</bean>
 
 	<bean id="consultoraService"
-		class="com.cloudfoundry.nrv.tstracker.service.ConsultoraServiceImpl">
+		class="com.cloudfoundry.tstracker.service.ConsultoraServiceImpl">
 		<property name="consultoraDAO" ref="consultoraDAO" />
 	</bean>
 
 	<bean id="proyectoService"
-		class="com.cloudfoundry.nrv.tstracker.service.ProyectoServiceImpl">
+		class="com.cloudfoundry.tstracker.service.ProyectoServiceImpl">
 		<property name="proyectoDAO" ref="proyectoDAO" />
 	</bean>
 
 	<bean id="reporteService"
-		class="com.cloudfoundry.nrv.tstracker.service.ReporteServiceImpl">
+		class="com.cloudfoundry.tstracker.service.ReporteServiceImpl">
 		<property name="reporteDAO" ref="reporteDAO" />
 	</bean>
 
-	<bean id="tareaService" class="com.cloudfoundry.nrv.tstracker.service.TareaServiceImpl">
+	<bean id="tareaService" class="com.cloudfoundry.tstracker.service.TareaServiceImpl">
 		<property name="tareaDAO" ref="tareaDAO" />
 	</bean>
 
 	<bean id="usuarioService"
-		class="com.cloudfoundry.nrv.tstracker.service.UsuarioServiceImpl">
+		class="com.cloudfoundry.tstracker.service.UsuarioServiceImpl">
 		<property name="usuarioDAO" ref="usuarioDAO" />
 	</bean>
 
 	<!--  SPRING SECURITY -->
-	<security:global-method-security
-        secured-annotations="enabled">
-    </security:global-method-security>
-    
+  
     <security:http
         auto-config="true"
         access-decision-manager-ref="accessDecisionManager"
-        access-denied-page="pagenotfound.zul">
+        access-denied-page="/accessdenied.zul">
 
         <!-- Todo lo que está abajo de "/home/" sólo puede ser accedido por usuarios autenticados con rol DEVELOPER -->
         <security:intercept-url
             pattern="/home/**"
             access="ROL_DEVELOPER" />
+            
+        <security:intercept-url 
+        	pattern="/marketing/**" 
+        	filters="none" />
         
         <!-- Lo que debe excluirse 
         <security:intercept-url
@@ -119,56 +120,57 @@
 
          <!-- Si entro directamente a login y me autentico correctamente,mandame a home -->
         <security:form-login
-            login-processing-url="/j_spring_security_check"
-            login-page="/"
+        	login-processing-url="/j_spring_security_check"
+            login-page="/marketing/login.zul"
             authentication-success-handler-ref="loginSuccessHandler"
             authentication-failure-handler-ref="loginFailureHandler" />
 
-        <security:logout
-            logout-url="/content/common/logout.jsf"
-            logout-success-url="/content/common/mapa/MapaInteractivo.jsf" />
+        <security:logout 
+        	logout-success-url="/marketing/login.zul" />
 
-        <security:session-management invalid-session-url="/" />
-
-        <security:remember-me key="myKey"/>
+        <security:session-management invalid-session-url="/marketing/login.zul" />
 
     </security:http>
+    
+    <bean id="loginSuccessHandler" class="com.cloudfoundry.tstracker.web.security.LoginSuccessHandler" >
+        <property name="defaultTargetUrl" value="/home" />
+    </bean>
+
+    <bean id="loginFailureHandler" class="com.cloudfoundry.tstracker.web.security.LoginFailureHander" >
+        <property name="defaultFailureUrl" value="/marketing/login.zul" />
+    </bean>
     
     <!-- Configura el gestor de decisiones de autenticación. -->
     <bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
         <!-- Define los participantes en el proceso de autenticación: -->
         <property name="decisionVoters">
             <list>
-                <ref bean="decisorRoles" />
-                <ref bean="decisorAuthentication" />
+                <ref bean="decisorDeRoles" />
+                <ref bean="decisorDeAutenticacion" />
             </list>
         </property>
+    </bean>    
+    
+    <!-- Decisor de roles, necesario para tener nombres de roles personalizados -->
+    <bean id="decisorDeRoles" class="org.springframework.security.access.vote.RoleVoter">
+        <property name="rolePrefix" value="ROL_" />
     </bean>
+
+    <bean id="decisorDeAutenticacion" class="org.springframework.security.access.vote.AuthenticatedVoter"/>
     
     <security:authentication-manager>
         <security:authentication-provider user-service-ref="usuarioService">
             <security:password-encoder ref="passwordEncoder" />
         </security:authentication-provider>
     </security:authentication-manager>
-    
-    <!-- Decisor de roles, necesario para tener nombres de roles personalizados -->
-    <bean id="decisorRoles" class="org.springframework.security.access.vote.RoleVoter">
-        <property name="rolePrefix" value="ROL_" />
-    </bean>
-
-    <bean id="decisorAuthentication" class="org.springframework.security.access.vote.AuthenticatedVoter"/>
-    
-    <bean id="loginSuccessHandler" class="com.cloudfoundry.nrv.tstracker.web.security.LoginSuccessHandler" >
-        <property name="defaultTargetUrl" value="/home" />
-    </bean>
-
-    <bean id="loginFailureHandler" class="com.cloudfoundry.nrv.tstracker.web.security.LoginFailureHander" >
-        <property name="defaultFailureUrl" value="/" />
-    </bean>
-    
+        
+    <!-- 
     <bean id="passwordEncoder" 
     	class="org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder">
         <constructor-arg value="MD5" />
-    </bean>
+    </bean>    
+     -->
 	
+	 <bean id="passwordEncoder" 
+    	class="org.springframework.security.authentication.encoding.PlaintextPasswordEncoder"/>
 </beans>

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>tstracker-pom</artifactId>
-		<groupId>com.cloudfoundry.nrv</groupId>
+		<groupId>com.cloudfoundry.tstracker</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
@@ -12,7 +12,7 @@
 	<description>Capa de acceso a datos de la app</description>
 	<dependencies>
 		<dependency>
-			<groupId>com.cloudfoundry.nrv</groupId>
+			<groupId>com.cloudfoundry.tstracker</groupId>
 			<artifactId>tstracker-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

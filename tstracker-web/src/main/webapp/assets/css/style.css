@@ -23,8 +23,14 @@
     font-size: 13px;
     font-weight: bold;
     color: #0F3B82;    
-    padding: 8px 10px;
-    -moz-border-radius: 4px 4px 4px 4px;
+    padding: 8px 10px;    
+}
+
+.texto_header {
+	font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0F3B82;
 }
   
 .toolBarMenu {

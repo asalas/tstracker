@@ -3,13 +3,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Cliente" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Consultora" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Desarrollador" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.LiderTecnico" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Proyecto" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Reporte" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Tarea" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Usuario" />
-	<entity class="com.cloudfoundry.nrv.tstracker.model.Rol" />
+	<entity class="com.cloudfoundry.tstracker.model.Cliente" />
+	<entity class="com.cloudfoundry.tstracker.model.Consultora" />
+	<entity class="com.cloudfoundry.tstracker.model.Desarrollador" />
+	<entity class="com.cloudfoundry.tstracker.model.LiderTecnico" />
+	<entity class="com.cloudfoundry.tstracker.model.Proyecto" />
+	<entity class="com.cloudfoundry.tstracker.model.Reporte" />
+	<entity class="com.cloudfoundry.tstracker.model.Tarea" />
+	<entity class="com.cloudfoundry.tstracker.model.Usuario" />
+	<entity class="com.cloudfoundry.tstracker.model.Rol" />
 </entity-mappings>
