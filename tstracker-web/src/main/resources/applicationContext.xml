@@ -97,6 +97,11 @@
 		class="com.cloudfoundry.tstracker.service.UsuarioServiceImpl">
 		<property name="usuarioDAO" ref="usuarioDAO" />
 	</bean>
+	
+	<bean id="authService"
+		class="com.cloudfoundry.tstracker.service.AuthServiceImpl">
+		<property name="usuarioDAO" ref="usuarioDAO" />
+	</bean>
 
 	<!--  SPRING SECURITY -->
   

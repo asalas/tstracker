@@ -1,4 +1,4 @@
-package com.cloudfoundry.tstracker.web.spring;
+package com.cloudfoundry.tstracker.web.util;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,6 +10,7 @@ import com.cloudfoundry.tstracker.dao.LiderTecnicoDAO;
 import com.cloudfoundry.tstracker.dao.ProyectoDAO;
 import com.cloudfoundry.tstracker.dao.ReporteDAO;
 import com.cloudfoundry.tstracker.dao.TareaDAO;
+import com.cloudfoundry.tstracker.service.AuthService;
 import com.cloudfoundry.tstracker.service.ClienteService;
 import com.cloudfoundry.tstracker.service.ConsultoraService;
 import com.cloudfoundry.tstracker.service.DesarrolladorService;
@@ -104,5 +105,11 @@ public class BeansFactory {
 		ReporteService reporteService = (ReporteService) context
 				.getBean("reporteService");
 		return reporteService;
+	}
+	
+	public static AuthService getAuthService() {
+		AuthService authService = (AuthService) context
+				.getBean("authService");
+		return authService;
 	}
 }

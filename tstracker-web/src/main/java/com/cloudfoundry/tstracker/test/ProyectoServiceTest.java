@@ -9,7 +9,7 @@ import com.cloudfoundry.tstracker.model.Desarrollador;
 import com.cloudfoundry.tstracker.model.Proyecto;
 import com.cloudfoundry.tstracker.service.DesarrolladorService;
 import com.cloudfoundry.tstracker.service.ProyectoService;
-import com.cloudfoundry.tstracker.web.spring.BeansFactory;
+import com.cloudfoundry.tstracker.web.util.BeansFactory;
 
 import junit.framework.TestCase;
 

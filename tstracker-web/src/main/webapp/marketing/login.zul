@@ -73,6 +73,7 @@
 									</vbox>
 									<vbox align="end" width="100%">
 										<h:input type="submit" value="Aceptar" />
+										<button id="btnLogin" label="Acceder" />
 										<checkbox id="ckbRememberMe"
 											sclass="check_signin" visible="false" />
 									</vbox>
