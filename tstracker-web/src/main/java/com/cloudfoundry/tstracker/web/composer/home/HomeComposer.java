@@ -8,7 +8,7 @@ import org.zkoss.zul.Toolbarbutton;
 import com.cloudfoundry.tstracker.model.Usuario;
 import com.cloudfoundry.tstracker.service.AuthService;
 import com.cloudfoundry.tstracker.web.util.BeansFactory;
-import com.cloudfoundry.tstracker.web.util.GravatarUtil;
+import com.cloudfoundry.tstracker.web.util.GravatarUtils;
 
 public class HomeComposer extends GenericForwardComposer<Component> {	
 	
@@ -34,7 +34,7 @@ public class HomeComposer extends GenericForwardComposer<Component> {
 		this.usuarioSession = this.authService.getCurrentUserInSession();
 		
 		this.btnShowUserName.setLabel(this.usuarioSession.getNombre());
-		this.btnShowUserName.setImage(GravatarUtil.gravatarImageURL(this.usuarioSession.getEmail()));
+		this.btnShowUserName.setImage(GravatarUtils.gravatarImageURL(this.usuarioSession.getEmail()));
 	}
 	
 	

@@ -2,6 +2,8 @@ package com.cloudfoundry.tstracker.test;
 
 import java.util.List;
 
+import junit.framework.TestCase;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,8 +12,6 @@ import com.cloudfoundry.tstracker.model.Proyecto;
 import com.cloudfoundry.tstracker.service.DesarrolladorService;
 import com.cloudfoundry.tstracker.service.ProyectoService;
 import com.cloudfoundry.tstracker.web.util.BeansFactory;
-
-import junit.framework.TestCase;
 
 public class ProyectoServiceTest extends TestCase {
 	

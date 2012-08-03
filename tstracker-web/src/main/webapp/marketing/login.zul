@@ -71,9 +71,8 @@
 											sclass="label_signin" value="Contraseña" />
 										<textbox id="p" type="password" name="j_password" sclass="textbox_signin" />
 									</vbox>
-									<vbox align="end" width="100%">
-										<h:input type="submit" value="Aceptar" />
-										<button id="btnLogin" label="Acceder" />
+									<vbox align="end" width="100%">										
+										<button id="btnLogin" label="Aceptar" />
 										<checkbox id="ckbRememberMe"
 											sclass="check_signin" visible="false" />
 									</vbox>
@@ -83,6 +82,7 @@
 										<toolbarbutton
 											label="Forgot your username?" href="#" />
 									</vbox>
+									
 								</vbox>
 							</h:form>
 						</div>

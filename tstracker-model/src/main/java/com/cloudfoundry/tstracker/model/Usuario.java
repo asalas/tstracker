@@ -52,7 +52,7 @@ public class Usuario implements Serializable, UserDetails {
 	@Column(name = "direccion")
 	private String direccion;
 
-	@Column(name = "email")
+	@Column(name = "email", unique = true)
 	private String email;
 	
 	@Column(name="telefono")

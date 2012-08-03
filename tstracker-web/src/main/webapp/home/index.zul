@@ -79,6 +79,7 @@
 		current_subpage.setValue(sub);
 	}
 ]]></zscript>
+	
 	<hlayout style="border: 1px solid red;">
 		<label id="current_category" sclass="nav_text nav_category"
 			onClick='UpdateSubPage("Index")'>
