@@ -126,14 +126,14 @@
          <!-- Si entro directamente a login y me autentico correctamente,mandame a home -->
         <security:form-login
         	login-processing-url="/j_spring_security_check"
-            login-page="/marketing/login.zul"
+            login-page="/"
             authentication-success-handler-ref="loginSuccessHandler"
             authentication-failure-handler-ref="loginFailureHandler" />
 
         <security:logout 
-        	logout-success-url="/marketing/login.zul" />
+        	logout-success-url="/" />
 
-        <security:session-management invalid-session-url="/marketing/login.zul" />
+        <security:session-management invalid-session-url="/" />
 
     </security:http>
     
@@ -142,7 +142,7 @@
     </bean>
 
     <bean id="loginFailureHandler" class="com.cloudfoundry.tstracker.web.security.LoginFailureHander" >
-        <property name="defaultFailureUrl" value="/marketing/login.zul" />
+        <property name="defaultFailureUrl" value="/" />
     </bean>
     
     <!-- Configura el gestor de decisiones de autenticación. -->

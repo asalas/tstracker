@@ -32,9 +32,7 @@ public class LoginComposer extends GenericForwardComposer<Component> {
 	
 	public void onClick$btnLogin(Event event) throws Exception {
 		Executions.getCurrent().getSession().setAttribute("current_user", this.u.getValue());
-		System.out.println("ASL => " + this.u.getValue());
-		Clients.submitForm("f");
-	
+		Clients.submitForm("f");	
 	}
 
 }
