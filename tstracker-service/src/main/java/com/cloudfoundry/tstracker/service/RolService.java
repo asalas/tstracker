@@ -1,14 +1,9 @@
-package com.cloudfoundry.tstracker.dao;
+package com.cloudfoundry.tstracker.service;
 
 import com.cloudfoundry.tstracker.model.Rol;
 import com.cloudfoundry.tstracker.model.RolesEnum;
 
-/**
- * 
- * @author asalas
- *
- */
-public interface RolDAO extends GenericDAO<Rol, Long> {
+public interface RolService {
 
 	public Rol getByCodigoRol(RolesEnum codigoRol);
 	

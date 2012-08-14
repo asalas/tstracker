@@ -16,4 +16,8 @@ public interface UsuarioService {
 	
 	public List<Usuario> getAll();
 	
+	public Usuario findByEmail(String email);
+	
+	public void registraNuevoDessarrollador(Usuario desarrollador);
+	
 }

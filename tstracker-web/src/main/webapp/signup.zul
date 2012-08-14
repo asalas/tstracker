@@ -1,0 +1,114 @@
+<zk xmlns:x="xhtml" xmlns:zk="zk">
+	<div width="673px" align="center">
+
+		<panel
+			apply="com.cloudfoundry.tstracker.web.composer.SignUpComposer"
+			border="normal" width="60%">
+			<caption sclass="texto_header"
+				image="/assets/images/Add_user16.png" label="Crea tu cuenta" />
+			<panelchildren>
+
+				<div align="center" style="margin: 10px;">
+
+					<h:form id="f" name="f"
+						action="j_spring_security_check" method="POST" xmlns:h="native">
+						
+						<x:table>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Nombre de usuario:" />
+								</x:td>
+								<x:td>
+									<textbox id="u"
+										name="j_username"
+										sclass="textbox_signin" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Contraseña:" />
+								</x:td>
+								<x:td>
+									<textbox id="p"
+										name="j_password"
+										sclass="textbox_signin" type="password" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Confirmar contraseña:" />
+								</x:td>
+								<x:td>
+									<textbox id="retypedPassword"
+										sclass="textbox_signin" type="password" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Nombre:" />
+								</x:td>
+								<x:td>
+									<textbox id="name"
+										sclass="textbox_signin" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Apellidos:" />
+								</x:td>
+								<x:td>
+									<textbox id="lastName"
+										sclass="textbox_signin" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Email" />
+								</x:td>
+								<x:td>
+									<textbox id="email"
+										sclass="textbox_signin" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Domicilio" />
+								</x:td>
+								<x:td>
+									<textbox id="address"
+										sclass="textbox_signin" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Teléfono" />
+								</x:td>
+								<x:td>
+									<textbox id="phone"
+										sclass="textbox_signin" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td colspan="2" align="center">
+									<button id="btnSubmit"
+										label="Enviar" width="100px" height="30px" />
+								</x:td>
+							</x:tr>
+						</x:table>
+
+					</h:form>
+
+				</div>
+			</panelchildren>
+		</panel>
+
+	</div>
+</zk>

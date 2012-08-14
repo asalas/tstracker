@@ -52,7 +52,7 @@ public class Proyecto implements Serializable {
 	@Column(name = "estado")
 	private EstadoEnum estado;	
 	
-	@ManyToMany(mappedBy = "listaProyectos" , fetch = FetchType.LAZY)
+	@ManyToMany(mappedBy = "listaProyectos", fetch = FetchType.LAZY)
 	private Set<Desarrollador> listaDesarrolladores = new HashSet<Desarrollador>();	
 
 	public EstadoEnum getEstado() {

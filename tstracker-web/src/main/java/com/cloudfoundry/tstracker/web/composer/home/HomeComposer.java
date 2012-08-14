@@ -33,23 +33,14 @@ public class HomeComposer extends GenericForwardComposer<Component> {
 		
 		this.usuarioSession = this.authService.getCurrentUserInSession();
 		
-		this.btnShowUserName.setLabel(this.usuarioSession.getNombre());
-		this.btnShowUserName.setImage(GravatarUtils.gravatarImageURL(this.usuarioSession.getEmail()));
+		if (this.usuarioSession != null) {
+			this.btnShowUserName.setLabel(this.usuarioSession.getNombre());
+			this.btnShowUserName.setImage(GravatarUtils.gravatarImageURL(this.usuarioSession.getEmail()));
+		}		
 	}
 	
 	
 	public void onClick$btnLogout(Event event) {
-		this.execution.sendRedirect("/j_spring_security_logout");
+		this.authService.doLogout();
 	}
-
-
-	public AuthService getAuthService() {
-		return authService;
-	}
-
-
-	public void setAuthService(AuthService authService) {
-		this.authService = authService;
-	}
-
 }

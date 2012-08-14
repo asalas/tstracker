@@ -91,16 +91,22 @@
 
 	<bean id="tareaService" class="com.cloudfoundry.tstracker.service.TareaServiceImpl">
 		<property name="tareaDAO" ref="tareaDAO" />
-	</bean>
-
-	<bean id="usuarioService"
-		class="com.cloudfoundry.tstracker.service.UsuarioServiceImpl">
-		<property name="usuarioDAO" ref="usuarioDAO" />
-	</bean>
+	</bean>	
 	
 	<bean id="authService"
 		class="com.cloudfoundry.tstracker.service.AuthServiceImpl">
 		<property name="usuarioDAO" ref="usuarioDAO" />
+	</bean>
+	
+	<bean id="rolService"
+		class="com.cloudfoundry.tstracker.service.RolServiceImpl">
+		<property name="rolDAO" ref="rolDAO" />
+	</bean>
+	
+	<bean id="usuarioService"
+		class="com.cloudfoundry.tstracker.service.UsuarioServiceImpl">
+		<property name="usuarioDAO" ref="usuarioDAO" />
+		<property name="rolService" ref="rolService" />
 	</bean>
 
 	<!--  SPRING SECURITY -->

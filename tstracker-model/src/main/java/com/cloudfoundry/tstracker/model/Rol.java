@@ -1,14 +1,19 @@
 package com.cloudfoundry.tstracker.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -40,6 +45,9 @@ public class Rol implements Serializable, GrantedAuthority {
 	
 	@Column(name = "descripcion_rol")
 	private String descripcionRol;
+	
+	@ManyToMany(mappedBy="", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private Set<Usuario> listaUsuarios = new HashSet<Usuario>();
 
 	public Long getId() {
 		return id;
@@ -64,11 +72,18 @@ public class Rol implements Serializable, GrantedAuthority {
 	public void setDescripcionRol(String descripcionRol) {
 		this.descripcionRol = descripcionRol;
 	}
+	
+	public Set<Usuario> getListaUsuarios() {
+		return listaUsuarios;
+	}
+
+	public void setListaUsuarios(Set<Usuario> listUsuarios) {
+		this.listaUsuarios = listUsuarios;
+	}
 
 	/* Se implementan los metodos de GrantedAuthority */
 	@Override
 	public String getAuthority() {
 		return this.codigoRol != null ? this.codigoRol.toString() : null;
 	}
-
 }

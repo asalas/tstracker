@@ -17,7 +17,9 @@ import com.cloudfoundry.tstracker.service.DesarrolladorService;
 import com.cloudfoundry.tstracker.service.LiderTecnicoService;
 import com.cloudfoundry.tstracker.service.ProyectoService;
 import com.cloudfoundry.tstracker.service.ReporteService;
+import com.cloudfoundry.tstracker.service.RolService;
 import com.cloudfoundry.tstracker.service.TareaService;
+import com.cloudfoundry.tstracker.service.UsuarioService;
 
 public class BeansFactory {
 
@@ -106,10 +108,20 @@ public class BeansFactory {
 				.getBean("reporteService");
 		return reporteService;
 	}
-	
+
 	public static AuthService getAuthService() {
-		AuthService authService = (AuthService) context
-				.getBean("authService");
+		AuthService authService = (AuthService) context.getBean("authService");
 		return authService;
+	}
+
+	public static UsuarioService getUsuarioService() {
+		UsuarioService usuarioService = (UsuarioService) context
+				.getBean("usuarioService");
+		return usuarioService;
+	}
+	
+	public static RolService getRolService() {
+		RolService rolService = (RolService) context.getBean("rolService");
+		return rolService;
 	}
 }

@@ -58,7 +58,7 @@ public class Usuario implements Serializable, UserDetails {
 	@Column(name="telefono")
 	private String telefono;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "roles_usuario", 
 				joinColumns = { @JoinColumn(referencedColumnName = "nombre_usuario", name="nombre_usuario", nullable = false, updatable = false) }, 
 				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_rol", name="id_rol", nullable = false, updatable = false) })
