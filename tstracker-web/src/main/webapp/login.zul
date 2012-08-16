@@ -58,18 +58,14 @@
 								<textbox id="p" type="password"
 									name="j_password" sclass="textbox_signin" />
 							</vbox>
-							<vbox align="end" width="100%">
+							<vbox align="left" width="100%">
 								<button id="btnLogin" label="Aceptar" height="30px" />
+								<toolbarbutton
+									id="btnForgotPass"
+									label="Ha olvidado su contraseña?" href="#" />
 								<checkbox id="ckbRememberMe"
 									sclass="check_signin" visible="false" />
 							</vbox>
-							<vbox visible="false">
-								<toolbarbutton
-									label="Forgot your password?" href="#" />
-								<toolbarbutton
-									label="Forgot your username?" href="#" />
-							</vbox>
-
 						</vbox>
 					</h:form>
 				</div>

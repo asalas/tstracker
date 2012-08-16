@@ -1,10 +1,13 @@
 package com.cloudfoundry.tstracker.web.composer;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Toolbarbutton;
+import org.zkoss.zul.Window;
 
 import com.cloudfoundry.tstracker.service.AuthService;
 import com.cloudfoundry.tstracker.web.util.BeansFactory;
@@ -20,6 +23,8 @@ public class LoginComposer extends GenericForwardComposer<Component> {
 	
 	public Button btnLogin;
 	
+	public Toolbarbutton btnForgotPass;
+	
 	private AuthService authService;
 	
 
@@ -31,5 +36,12 @@ public class LoginComposer extends GenericForwardComposer<Component> {
 	
 	public void onClick$btnLogin(Event event) throws Exception {
 		this.authService.doLogin(this.u.getValue(), "f");
+	}
+	
+	public void onClick$btnForgotPass(Event event) throws Exception {
+		Window winForgotPassword = (Window)Executions.createComponents("forgot_password.zul", null, null);
+		winForgotPassword.setVisible(true);
+		winForgotPassword.setPosition("center");
+		//winForgotPassword.doOverlapped();
 	}
 }
