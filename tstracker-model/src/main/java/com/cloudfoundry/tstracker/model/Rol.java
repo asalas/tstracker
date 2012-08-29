@@ -46,7 +46,7 @@ public class Rol implements Serializable, GrantedAuthority {
 	@Column(name = "descripcion_rol")
 	private String descripcionRol;
 	
-	@ManyToMany(mappedBy="", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToMany(mappedBy="listaRoles", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private Set<Usuario> listaUsuarios = new HashSet<Usuario>();
 
 	public Long getId() {
