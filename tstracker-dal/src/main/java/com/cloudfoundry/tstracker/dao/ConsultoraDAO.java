@@ -1,7 +1,7 @@
 package com.cloudfoundry.tstracker.dao;
 
-import com.cloudfoundry.tstracker.model.Consultora;
+import com.cloudfoundry.tstracker.model.Consultoria;
 
-public interface ConsultoraDAO extends GenericDAO<Consultora, Long> {
+public interface ConsultoraDAO extends GenericDAO<Consultoria, Long> {
 
 }

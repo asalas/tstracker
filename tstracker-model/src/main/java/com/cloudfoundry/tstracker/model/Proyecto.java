@@ -53,7 +53,11 @@ public class Proyecto implements Serializable {
 	private EstadoEnum estado;	
 	
 	@ManyToMany(mappedBy = "listaProyectos", fetch = FetchType.LAZY)
-	private Set<Desarrollador> listaDesarrolladores = new HashSet<Desarrollador>();	
+	private Set<Desarrollador> listaDesarrolladores = new HashSet<Desarrollador>();
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_cliente", referencedColumnName="id_cliente")
+	private Cliente cliente;
 
 	public EstadoEnum getEstado() {
 		return estado;
@@ -101,5 +105,13 @@ public class Proyecto implements Serializable {
 
 	public void setListaDesarrolladores(Set<Desarrollador> listaDesarrolladores) {
 		this.listaDesarrolladores = listaDesarrolladores;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 }

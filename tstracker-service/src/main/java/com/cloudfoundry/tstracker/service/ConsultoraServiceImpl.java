@@ -3,10 +3,10 @@ package com.cloudfoundry.tstracker.service;
 import java.util.List;
 
 import com.cloudfoundry.tstracker.dao.ConsultoraDAO;
-import com.cloudfoundry.tstracker.model.Consultora;
+import com.cloudfoundry.tstracker.model.Consultoria;
 
 /**
- * Implementacion del servicio de la entidad Consultora
+ * Implementacion del servicio de la entidad Consultoria
  * 
  * @author asalas
  * 
@@ -16,18 +16,18 @@ public class ConsultoraServiceImpl implements ConsultoraService {
 	private ConsultoraDAO consultoraDAO;
 
 	@Override
-	public void persist(Consultora consultora) {
+	public void persist(Consultoria consultora) {
 		this.consultoraDAO.persist(consultora);
 	}
 
 	@Override
-	public void merge(Consultora consultora) {
+	public void merge(Consultoria consultora) {
 		this.consultoraDAO.merge(consultora);
 	}
 
 	@Override
-	public void save(Consultora consultora) {
-		Consultora dbConsultora = this.findById(consultora.getId());
+	public void save(Consultoria consultora) {
+		Consultoria dbConsultora = this.findById(consultora.getId());
 		if(dbConsultora == null) {
 			this.persist(consultora);			
 		} else {
@@ -36,17 +36,17 @@ public class ConsultoraServiceImpl implements ConsultoraService {
 	}
 
 	@Override
-	public void remove(Consultora consultora) {
+	public void remove(Consultoria consultora) {
 		this.consultoraDAO.remove(consultora);		
 	}
 
 	@Override
-	public Consultora findById(Long consultoraId) {
+	public Consultoria findById(Long consultoraId) {
 		return this.consultoraDAO.findById(consultoraId);
 	}
 
 	@Override
-	public List<Consultora> getAll() {
+	public List<Consultoria> getAll() {
 		return this.consultoraDAO.findAll();
 	}
 	

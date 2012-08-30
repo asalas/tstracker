@@ -10,15 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Esta entidad representa a la Consultora
+ * Esta entidad representa a la Consultoria
  * 
  * @author asalas
  * 
  */
 
 @Entity
-@Table(name = "consultora")
-public class Consultora implements Serializable {
+@Table(name = "consultoria")
+public class Consultoria implements Serializable {
 
 	/**
 	 * Serial ID
@@ -27,7 +27,7 @@ public class Consultora implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_consultora")
+	@Column(name = "id_consultoria")
 	private Long id;
 
 	@Column(name = "nombre")
@@ -41,7 +41,7 @@ public class Consultora implements Serializable {
 
 	@Column(name = "email")
 	private String email;
-
+	
 	public Long getId() {
 		return id;
 	}

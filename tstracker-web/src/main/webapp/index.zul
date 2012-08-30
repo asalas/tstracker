@@ -17,7 +17,7 @@
 				<toolbarbutton id="btnSignUp" 
 					sclass="toolbar_button" 
 					label="Registrarse"
-					image="/assets/images/Add16.png" />
+					image="/assets/images/Add_user16.png" />
 			</toolbar>
 
 			<hbox id="hboxMainLayout" spacing="88px"

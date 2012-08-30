@@ -17,7 +17,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 /**
- * Esta entidad representa al Desarrollador que trabaja para la Consultora
+ * Esta entidad representa al Desarrollador que trabaja para la Consultoria
  * 
  * @author asalas
  * 

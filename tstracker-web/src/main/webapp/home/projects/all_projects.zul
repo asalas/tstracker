@@ -1,0 +1,14 @@
+<zk>
+	<vlayout apply="com.cloudfoundry.tstracker.web.composer.home.projects.AllProjectsComposer">
+	
+		<button image="/assets/images/Add16.png" label="Nuevo proyecto" />
+		
+		<listbox>
+			<listhead>
+				<listheader label="Proyecto" sort="auto" />
+			</listhead>
+		</listbox>
+	
+	</vlayout>
+
+</zk>

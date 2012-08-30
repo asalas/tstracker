@@ -4,16 +4,19 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 
 /**
  * Esta entidad representa al Cliente que contrata los servicios de la
- * Consultora
+ * Consultoria
  * 
  * @author asalas
  * 
@@ -40,6 +43,10 @@ public class Cliente implements Serializable {
 	
 	@Column(name="telefono")
 	private String telefono;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_consultoria", referencedColumnName="id_consultoria")
+	private Consultoria consultoria;
 
 	public Long getId() {
 		return id;
@@ -63,12 +70,7 @@ public class Cliente implements Serializable {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
-	}
-	
-	@Override
-	public String toString() {
-		return ReflectionToStringBuilder.toString(this);
-	}
+	}	
 
 	public String getTelefono() {
 		return telefono;
@@ -78,4 +80,16 @@ public class Cliente implements Serializable {
 		this.telefono = telefono;
 	}
 
+	public Consultoria getConsultoria() {
+		return consultoria;
+	}
+
+	public void setConsultoria(Consultoria consultoria) {
+		this.consultoria = consultoria;
+	}
+	
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
+	}
 }

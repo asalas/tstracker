@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 
 /**
  * Esta entidad representa el Reporte generado para entregar los timesheets a la
- * Consultora
+ * Consultoria
  * 
  * @author asalas
  * 
