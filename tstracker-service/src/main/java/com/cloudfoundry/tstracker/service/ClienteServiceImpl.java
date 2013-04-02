@@ -4,9 +4,13 @@ import java.util.List;
 
 import com.cloudfoundry.tstracker.dao.ClienteDAO;
 import com.cloudfoundry.tstracker.model.Cliente;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service(value = "clienteService")
 public class ClienteServiceImpl implements ClienteService {
 
+        @Autowired
 	private ClienteDAO clienteDAO;
 
 	@Override
@@ -45,11 +49,4 @@ public class ClienteServiceImpl implements ClienteService {
 		
 	}
 
-	public ClienteDAO getClienteDAO() {
-		return clienteDAO;
-	}
-
-	public void setClienteDAO(ClienteDAO clienteDAO) {
-		this.clienteDAO = clienteDAO;
-	}
 }

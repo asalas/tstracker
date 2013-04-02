@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
-import org.zkoss.zul.Messagebox;
 
 public class LoginFailureHander extends SimpleUrlAuthenticationFailureHandler {
 

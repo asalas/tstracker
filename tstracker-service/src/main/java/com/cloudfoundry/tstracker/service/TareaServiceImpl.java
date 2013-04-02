@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.cloudfoundry.tstracker.dao.TareaDAO;
 import com.cloudfoundry.tstracker.model.Tarea;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Implementacion del servicio de la entidad Tarea
@@ -11,8 +13,10 @@ import com.cloudfoundry.tstracker.model.Tarea;
  * @author asalas
  * 
  */
+@Service(value = "tareaServiceImpl")
 public class TareaServiceImpl implements TareaService {
 	
+        @Autowired
 	private TareaDAO tareaDAO;	
 
 	@Override
@@ -49,12 +53,5 @@ public class TareaServiceImpl implements TareaService {
 	public List<Tarea> getAll() {
 		return this.tareaDAO.findAll();
 	}
-	
-	public TareaDAO getTareaDAO() {
-		return tareaDAO;
-	}
 
-	public void setTareaDAO(TareaDAO tareaDAO) {
-		this.tareaDAO = tareaDAO;
-	}
 }

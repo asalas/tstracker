@@ -4,12 +4,14 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.cloudfoundry.tstracker.model.Usuario;
+import org.springframework.stereotype.Repository;
 
 /**
  * 
  * @author asalas
  *
  */
+@Repository(value = "usuarioDAO")
 public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, String> implements
 		UsuarioDAO {
 

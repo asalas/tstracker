@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.cloudfoundry.tstracker.dao;
 
 import com.cloudfoundry.tstracker.model.Cliente;

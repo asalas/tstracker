@@ -20,6 +20,7 @@ public class ProyectoServiceTest extends TestCase {
 	private DesarrolladorService desarrolladorService;
 	
 	@Before
+        @Override
 	public void setUp() {
 		this.proyectoService = BeansFactory.getProyectoService();
 		this.desarrolladorService = BeansFactory.getDesarrolladorService();

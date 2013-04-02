@@ -26,7 +26,7 @@ public class BeansFactory {
 	private static ApplicationContext context;
 
 	static {
-		context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		context = new ClassPathXmlApplicationContext("/spring/applicationContext*.xml");
 	}
 
 	public static ClienteDAO getClienteDAO() {

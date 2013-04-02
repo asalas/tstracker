@@ -2,6 +2,8 @@ package com.cloudfoundry.tstracker.service;
 
 import com.cloudfoundry.tstracker.dao.DesarrolladorDAO;
 import com.cloudfoundry.tstracker.model.Desarrollador;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Implementacion del servicio de la entidad Desarrollador
@@ -9,8 +11,10 @@ import com.cloudfoundry.tstracker.model.Desarrollador;
  * @author asalas
  * 
  */
+@Service(value = "desarrolladorService")
 public class DesarrolladorServiceImpl implements DesarrolladorService {
 
+        @Autowired
 	private DesarrolladorDAO desarrolladorDAO;
 	
 	@Override
@@ -18,11 +22,4 @@ public class DesarrolladorServiceImpl implements DesarrolladorService {
 		return this.desarrolladorDAO.findById(nombreUsuario);
 	}
 
-	public DesarrolladorDAO getDesarrolladorDAO() {
-		return desarrolladorDAO;
-	}
-
-	public void setDesarrolladorDAO(DesarrolladorDAO desarrolladorDAO) {
-		this.desarrolladorDAO = desarrolladorDAO;
-	}
 }

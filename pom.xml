@@ -200,6 +200,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.8</version>
 		</dependency>
+                
+                <!-- Pool de conexiones Enterprise -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>commons-net</groupId>

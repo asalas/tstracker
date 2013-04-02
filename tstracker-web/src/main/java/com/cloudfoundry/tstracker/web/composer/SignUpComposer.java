@@ -13,9 +13,12 @@ import org.zkoss.zul.Textbox;
 import com.cloudfoundry.tstracker.model.Usuario;
 import com.cloudfoundry.tstracker.service.AuthService;
 import com.cloudfoundry.tstracker.service.UsuarioService;
-import com.cloudfoundry.tstracker.web.util.BeansFactory;
 import com.cloudfoundry.tstracker.web.util.ContantsTstracker;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 
+@org.springframework.stereotype.Component
+@Scope("desktop")
 public class SignUpComposer extends GenericForwardComposer<Component> {	
 
 	/**
@@ -23,8 +26,9 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+        @Autowired
 	private UsuarioService usuarioService;
-	
+	@Autowired
 	private AuthService authService;
 	
 	public Textbox u;
@@ -48,8 +52,7 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);		
-		this.usuarioService = BeansFactory.getUsuarioService();
-		this.authService = BeansFactory.getAuthService();
+		
 	}
 
 	private String getU() throws WrongValueException {		

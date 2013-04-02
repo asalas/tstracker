@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.cloudfoundry.tstracker.dao.ReporteDAO;
 import com.cloudfoundry.tstracker.model.Reporte;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Implementacion del servicio de la entidad Reporte
@@ -11,8 +13,10 @@ import com.cloudfoundry.tstracker.model.Reporte;
  * @author asalas
  * 
  */
+@Service(value = "reporteServiceImpl")
 public class ReporteServiceImpl implements ReporteService {
 	
+        @Autowired
 	private ReporteDAO reporteDAO;	
 
 	@Override
@@ -48,14 +52,6 @@ public class ReporteServiceImpl implements ReporteService {
 	@Override
 	public List<Reporte> getAll() {
 		return this.reporteDAO.findAll();
-	}
-	
-	public ReporteDAO getReporteDAO() {
-		return reporteDAO;
-	}
-
-	public void setReporteDAO(ReporteDAO reporteDAO) {
-		this.reporteDAO = reporteDAO;
 	}
 
 }

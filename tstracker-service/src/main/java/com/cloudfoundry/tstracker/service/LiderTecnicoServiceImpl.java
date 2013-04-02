@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.cloudfoundry.tstracker.dao.LiderTecnicoDAO;
 import com.cloudfoundry.tstracker.model.LiderTecnico;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Implementacion del servicio de la entidad LiderTecnico
@@ -11,8 +13,10 @@ import com.cloudfoundry.tstracker.model.LiderTecnico;
  * @author asalas
  * 
  */
+@Service(value = "liderTecnicoService")
 public class LiderTecnicoServiceImpl implements LiderTecnicoService {
 
+        @Autowired
 	private LiderTecnicoDAO liderTecnicoDAO;
 
 	@Override
@@ -50,12 +54,5 @@ public class LiderTecnicoServiceImpl implements LiderTecnicoService {
 	public List<LiderTecnico> getAll() {
 		return this.liderTecnicoDAO.findAll();
 	}
-	
-	public LiderTecnicoDAO getLiderTecnicoDAO() {
-		return liderTecnicoDAO;
-	}
 
-	public void setLiderTecnicoDAO(LiderTecnicoDAO liderTecnicoDAO) {
-		this.liderTecnicoDAO = liderTecnicoDAO;
-	}
 }

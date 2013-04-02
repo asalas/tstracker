@@ -11,7 +11,11 @@ import org.zkoss.zul.Window;
 
 import com.cloudfoundry.tstracker.service.AuthService;
 import com.cloudfoundry.tstracker.web.util.BeansFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 
+@org.springframework.stereotype.Component
+@Scope("desktop")
 public class LoginComposer extends GenericForwardComposer<Component> {
 
 	/**
@@ -25,13 +29,14 @@ public class LoginComposer extends GenericForwardComposer<Component> {
 	
 	public Toolbarbutton btnForgotPass;
 	
+        @Autowired
 	private AuthService authService;
 	
 
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-		this.authService = BeansFactory.getAuthService();
+		
 	}
 	
 	public void onClick$btnLogin(Event event) throws Exception {

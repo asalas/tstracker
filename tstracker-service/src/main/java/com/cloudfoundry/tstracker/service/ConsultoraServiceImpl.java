@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.cloudfoundry.tstracker.dao.ConsultoraDAO;
 import com.cloudfoundry.tstracker.model.Consultoria;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Implementacion del servicio de la entidad Consultoria
@@ -11,8 +13,10 @@ import com.cloudfoundry.tstracker.model.Consultoria;
  * @author asalas
  * 
  */
+@Service(value = "consultoraService")
 public class ConsultoraServiceImpl implements ConsultoraService {
 
+        @Autowired
 	private ConsultoraDAO consultoraDAO;
 
 	@Override
@@ -49,12 +53,5 @@ public class ConsultoraServiceImpl implements ConsultoraService {
 	public List<Consultoria> getAll() {
 		return this.consultoraDAO.findAll();
 	}
-	
-	public ConsultoraDAO getConsultoraDAO() {
-		return consultoraDAO;
-	}
 
-	public void setConsultoraDAO(ConsultoraDAO consultoraDAO) {
-		this.consultoraDAO = consultoraDAO;
-	}
 }

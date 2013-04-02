@@ -5,6 +5,8 @@ import java.util.List;
 import com.cloudfoundry.tstracker.dao.ProyectoDAO;
 import com.cloudfoundry.tstracker.model.Desarrollador;
 import com.cloudfoundry.tstracker.model.Proyecto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Implementacion del servicio de la entidad Proyecto
@@ -12,8 +14,10 @@ import com.cloudfoundry.tstracker.model.Proyecto;
  * @author asalas
  * 
  */
+@Service(value = "proyectoService")
 public class ProyectoServiceImpl implements ProyectoService {
 
+        @Autowired
 	private ProyectoDAO proyectoDAO;
 	
 	@Override
@@ -59,15 +63,6 @@ public class ProyectoServiceImpl implements ProyectoService {
 	@Override
 	public List<Proyecto> getAllByDesarrollador(Desarrollador desarrollador) {		
 		return this.proyectoDAO.getAllByDesarrollador(desarrollador);
-	}
-	
-
-	public ProyectoDAO getProyectoDAO() {
-		return proyectoDAO;
-	}
-
-	public void setProyectoDAO(ProyectoDAO proyectoDAO) {
-		this.proyectoDAO = proyectoDAO;
 	}
 	
 }
