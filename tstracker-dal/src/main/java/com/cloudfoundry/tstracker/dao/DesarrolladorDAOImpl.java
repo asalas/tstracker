@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * @author asalas
  *
  */
-@Repository(value = "desarrolladorDAO")
+@Repository
 public class DesarrolladorDAOImpl extends GenericDAOImpl<Desarrollador, String> implements
 		DesarrolladorDAO {
 

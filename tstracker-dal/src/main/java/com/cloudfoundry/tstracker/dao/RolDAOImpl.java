@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  * @author asalas
  *
  */
-@Repository(value = "rolDAO")
+@Repository
 public class RolDAOImpl extends GenericDAOImpl<Rol, Long> implements RolDAO {
 
 	@Override

@@ -120,6 +120,12 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+                
+                <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 
 		<dependency>
@@ -315,6 +321,13 @@
 			<groupId>de.bripkens</groupId>
 			<artifactId>gravatar4java</artifactId>
 			<version>1.1</version>
+		</dependency>
+                
+                <!-- TestNG -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8</version>
 		</dependency>
 
 

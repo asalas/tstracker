@@ -6,7 +6,7 @@ import com.cloudfoundry.tstracker.model.RolesEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service(value = "rolService")
+@Service
 public class RolServiceImpl implements RolService {
 
         @Autowired

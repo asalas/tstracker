@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @author asalas
  * 
  */
-@Service(value = "consultoraService")
+@Service
 public class ConsultoraServiceImpl implements ConsultoraService {
 
         @Autowired

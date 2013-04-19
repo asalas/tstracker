@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * @author asalas
  * 
  */
-@Service(value = "tareaServiceImpl")
+@Service
 public class TareaServiceImpl implements TareaService {
 	
         @Autowired

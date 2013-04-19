@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @author asalas
  * 
  */
-@Service(value = "proyectoService")
+@Service
 public class ProyectoServiceImpl implements ProyectoService {
 
         @Autowired

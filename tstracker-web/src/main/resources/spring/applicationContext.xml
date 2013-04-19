@@ -15,10 +15,15 @@
     <aop:aspectj-autoproxy />
 
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
-    <context:annotation-config />
+    
     <context:component-scan base-package="org.zkoss.zkspringessentials.controller classpath*:org/zkoss/spring/beans/zkcomponents/**/*.class" />
+    
     <context:component-scan base-package="com.cloudfoundry.tstracker" />
     
+    <import resource="classpath*:META-INF/spring-model.xml" />
+    <import resource="classpath*:META-INF/spring-dal.xml" />    
+    <import resource="classpath*:META-INF/spring-service.xml" />
+ 
     <!-- Enables ZK custom scopes for Spring Beans -->
     <zksp:zk-config/>
     

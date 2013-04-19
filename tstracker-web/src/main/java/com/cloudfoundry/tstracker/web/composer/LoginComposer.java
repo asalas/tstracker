@@ -10,7 +10,6 @@ import org.zkoss.zul.Toolbarbutton;
 import org.zkoss.zul.Window;
 
 import com.cloudfoundry.tstracker.service.AuthService;
-import com.cloudfoundry.tstracker.web.util.BeansFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 

@@ -8,9 +8,9 @@ import javax.persistence.Query;
 
 import com.cloudfoundry.tstracker.model.Desarrollador;
 import com.cloudfoundry.tstracker.model.Proyecto;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component(value = "proyectoDAO")
+@Repository
 public class ProyectoDAOImpl extends GenericDAOImpl<Proyecto, Long> implements
 		ProyectoDAO {
 
