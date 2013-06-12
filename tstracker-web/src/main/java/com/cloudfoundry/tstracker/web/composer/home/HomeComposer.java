@@ -13,12 +13,9 @@ import org.zkoss.zul.Toolbarbutton;
 
 import com.cloudfoundry.tstracker.model.Usuario;
 import com.cloudfoundry.tstracker.service.AuthService;
-import com.cloudfoundry.tstracker.web.util.BeansFactory;
+import com.cloudfoundry.tstracker.support.ProxyContextLoaderListener;
 import com.cloudfoundry.tstracker.web.util.GravatarUtils;
-import org.springframework.context.annotation.Scope;
 
-@org.springframework.stereotype.Component
-@Scope("desktop")
 public class HomeComposer extends GenericForwardComposer<Component> {	
 	
 	/**
@@ -39,15 +36,13 @@ public class HomeComposer extends GenericForwardComposer<Component> {
 	
 	public Hlayout hlMainContent;
 	
-	private AuthService authService;
+	private AuthService authService = (AuthService) ProxyContextLoaderListener.getContext().getBean("authService");
 	
 	private Usuario usuarioSession;
 	
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-		
-		this.authService = BeansFactory.getAuthService();
 		
 		this.usuarioSession = this.authService.getCurrentUserInSession();
 		

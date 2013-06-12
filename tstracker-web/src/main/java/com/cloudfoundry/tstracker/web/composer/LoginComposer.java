@@ -10,11 +10,8 @@ import org.zkoss.zul.Toolbarbutton;
 import org.zkoss.zul.Window;
 
 import com.cloudfoundry.tstracker.service.AuthService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
+import com.cloudfoundry.tstracker.support.ProxyContextLoaderListener;
 
-@org.springframework.stereotype.Component
-@Scope("desktop")
 public class LoginComposer extends GenericForwardComposer<Component> {
 
 	/**
@@ -28,14 +25,12 @@ public class LoginComposer extends GenericForwardComposer<Component> {
 	
 	public Toolbarbutton btnForgotPass;
 	
-        @Autowired
-	private AuthService authService;
+	private AuthService authService = (AuthService) ProxyContextLoaderListener.getContext().getBean("authService");
 	
 
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-		
 	}
 	
 	public void onClick$btnLogin(Event event) throws Exception {

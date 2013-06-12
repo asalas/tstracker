@@ -6,6 +6,7 @@ import com.cloudfoundry.tstracker.dao.ConsultoraDAO;
 import com.cloudfoundry.tstracker.model.Consultoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Implementacion del servicio de la entidad Consultoria
@@ -30,6 +31,7 @@ public class ConsultoraServiceImpl implements ConsultoraService {
 	}
 
 	@Override
+        @Transactional(rollbackFor = Throwable.class)
 	public void save(Consultoria consultora) {
 		Consultoria dbConsultora = this.findById(consultora.getId());
 		if(dbConsultora == null) {

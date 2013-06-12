@@ -13,12 +13,9 @@ import org.zkoss.zul.Textbox;
 import com.cloudfoundry.tstracker.model.Usuario;
 import com.cloudfoundry.tstracker.service.AuthService;
 import com.cloudfoundry.tstracker.service.UsuarioService;
+import com.cloudfoundry.tstracker.support.ProxyContextLoaderListener;
 import com.cloudfoundry.tstracker.web.util.ContantsTstracker;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 
-@org.springframework.stereotype.Component
-@Scope("desktop")
 public class SignUpComposer extends GenericForwardComposer<Component> {	
 
 	/**
@@ -26,10 +23,12 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-        @Autowired
-	private UsuarioService usuarioService;
-	@Autowired
-	private AuthService authService;
+    
+	private UsuarioService usuarioService = 
+			(UsuarioService) ProxyContextLoaderListener.getContext().getBean("usuarioService");
+	
+	private AuthService authService = 
+			(AuthService) ProxyContextLoaderListener.getContext().getBean("authService");
 	
 	public Textbox u;
 

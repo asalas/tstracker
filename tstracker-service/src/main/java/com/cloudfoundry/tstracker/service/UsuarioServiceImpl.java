@@ -14,8 +14,9 @@ import com.cloudfoundry.tstracker.model.RolesEnum;
 import com.cloudfoundry.tstracker.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-@Service
+@Service(value = "usuarioService")
 public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
 
     @Autowired
@@ -75,11 +76,12 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
     }
 
     @Override
+    @Transactional(rollbackFor = Throwable.class)
     public void registraNuevoDessarrollador(Usuario desarrollador) {
         this.persist(desarrollador);
 
-//El rol por defecto es el de desarrollador, no es posible asignar otro tipo de rol
-//ya que la herramienta esta diseniada especificamente para desarrolladores
+//El rol por defecto es el de desarrollador, por el momento no es posible asignar otro tipo de rol
+//ya que la herramienta esta diseniada para desarrolladores en su estado actual
 
         Rol dbRol = this.rolService.getByCodigoRol(RolesEnum.ROL_DEVELOPER);
         List<Rol> roles = new ArrayList<Rol>();

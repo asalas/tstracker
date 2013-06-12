@@ -6,6 +6,7 @@ import com.cloudfoundry.tstracker.dao.ClienteDAO;
 import com.cloudfoundry.tstracker.model.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -39,6 +40,7 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 	
 	@Override
+        @Transactional(rollbackFor = Throwable.class)
 	public void save(Cliente cliente) {
 		Cliente dbCliente = this.findById(cliente.getId());
 		if(dbCliente == null) {

@@ -7,6 +7,7 @@ import com.cloudfoundry.tstracker.model.Desarrollador;
 import com.cloudfoundry.tstracker.model.Proyecto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Implementacion del servicio de la entidad Proyecto
@@ -33,6 +34,7 @@ public class ProyectoServiceImpl implements ProyectoService {
 
 
 	@Override
+        @Transactional(rollbackFor = Throwable.class)
 	public void save(Proyecto proyecto) {
 		Proyecto dbProyecto = this.findById(proyecto.getId());
 		if(dbProyecto == null) {

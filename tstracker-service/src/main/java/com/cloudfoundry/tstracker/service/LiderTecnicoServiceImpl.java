@@ -6,6 +6,7 @@ import com.cloudfoundry.tstracker.dao.LiderTecnicoDAO;
 import com.cloudfoundry.tstracker.model.LiderTecnico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Implementacion del servicio de la entidad LiderTecnico
@@ -31,6 +32,7 @@ public class LiderTecnicoServiceImpl implements LiderTecnicoService {
 	}
 
 	@Override
+        @Transactional(rollbackFor = Throwable.class)
 	public void save(LiderTecnico liderTecnico) {
 		LiderTecnico dbLiderTecnico = this.findById(liderTecnico.getId());
 		if(dbLiderTecnico == null) {

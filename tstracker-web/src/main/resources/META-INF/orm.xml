@@ -5,7 +5,7 @@
                  version="1.0">
 
     <!-- TODO: VERIFICAR QUE NO HAGA FALTA EL MAPEO DE LAS ENTIDADES -->
-    <!--	
+    	
     <entity class="com.cloudfoundry.tstracker.model.Cliente" />
     <entity class="com.cloudfoundry.tstracker.model.Consultoria" />
     <entity class="com.cloudfoundry.tstracker.model.Desarrollador" />
@@ -15,5 +15,5 @@
     <entity class="com.cloudfoundry.tstracker.model.Tarea" />
     <entity class="com.cloudfoundry.tstracker.model.Usuario" />
     <entity class="com.cloudfoundry.tstracker.model.Rol" />
-    -->
+    
 </entity-mappings>

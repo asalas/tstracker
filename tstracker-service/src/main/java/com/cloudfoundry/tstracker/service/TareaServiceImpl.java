@@ -6,6 +6,7 @@ import com.cloudfoundry.tstracker.dao.TareaDAO;
 import com.cloudfoundry.tstracker.model.Tarea;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Implementacion del servicio de la entidad Tarea
@@ -30,6 +31,7 @@ public class TareaServiceImpl implements TareaService {
 	}
 
 	@Override
+        @Transactional(rollbackFor = Throwable.class)
 	public void save(Tarea tarea) {
 		Tarea dbTarea = this.findById(tarea.getId());
 		if(dbTarea == null) {

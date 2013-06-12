@@ -20,7 +20,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.cloudfoundry.tstracker</groupId>
-			<artifactId>tstracker-dal</artifactId>
+			<artifactId>tstracker-dao</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -28,9 +28,9 @@
 			<artifactId>tstracker-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
+                <dependency>
 			<groupId>com.cloudfoundry.tstracker</groupId>
-			<artifactId>tstracker-intg</artifactId>
+			<artifactId>tstracker-support</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

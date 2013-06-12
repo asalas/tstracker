@@ -6,6 +6,7 @@ import com.cloudfoundry.tstracker.dao.ReporteDAO;
 import com.cloudfoundry.tstracker.model.Reporte;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Implementacion del servicio de la entidad Reporte
@@ -30,6 +31,7 @@ public class ReporteServiceImpl implements ReporteService {
 	}
 
 	@Override
+        @Transactional(rollbackFor = Throwable.class)
 	public void save(Reporte reporte) {
 		Reporte dbReporte = this.findById(reporte.getId());
 		if(dbReporte == null) {
