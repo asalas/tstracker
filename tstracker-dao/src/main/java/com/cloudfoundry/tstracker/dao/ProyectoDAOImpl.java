@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 public class ProyectoDAOImpl extends GenericDAOImpl<Proyecto, Long> implements
 		ProyectoDAO {
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Proyecto> getAllByDesarrollador(Desarrollador desarrollador) {
 

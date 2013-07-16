@@ -2,6 +2,7 @@ package com.cloudfoundry.tstracker.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -27,9 +28,12 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
     static {
         logger.setLevel(Level.DEBUG);
     }
+    
     private Class<T> entityBeanType;
+    
     @PersistenceContext(type = PersistenceContextType.EXTENDED)
     EntityManager entityManager;
+    
     EntityTransaction entityTransaction;
 
     public final void setEntityManager(EntityManager entityManager) {
@@ -38,8 +42,9 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
 
     @SuppressWarnings("unchecked")
     public GenericDAOImpl() {
-        this.entityBeanType = (Class<T>) ((ParameterizedType) getClass()
-                .getGenericSuperclass()).getActualTypeArguments()[0];
+        ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+		Type actualTypeArgs = genericSuperclass.getActualTypeArguments()[0];
+		this.entityBeanType = (Class<T>) actualTypeArgs;
     }
 
     public EntityManager getEntityManager() {

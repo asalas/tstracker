@@ -1,0 +1,40 @@
+<zk>
+	<window title="Agregar Consultoria" border="normal" closable="true" mode="modal"
+	apply="com.cloudfoundry.tstracker.web.composer.home.consultancy.AllConsultancyComposer">
+
+		<panel>
+			<panelchildren>
+
+				<vbox>
+					
+					<hbox>					
+						<label value="Nombre" />
+						<textbox id="txtConsultancyName" />					
+					</hbox>
+					
+					<hbox>					
+						<label value="Dirección" />
+						<textbox id="txtConsultancyAddress" />					
+					</hbox>
+					
+					<hbox>					
+						<label value="Ejecutivo de cuenta" />
+						<textbox id="txtExecutive" />					
+					</hbox>
+					
+					<hbox>					
+						<label value="email" />
+						<textbox id="txtEmail" />					
+					</hbox>
+					
+					<hbox>
+						<button id="btnSaveConsultancy" label="Agregar" />
+					</hbox>
+				
+				</vbox>
+
+			</panelchildren>
+		</panel>
+
+	</window>
+</zk>

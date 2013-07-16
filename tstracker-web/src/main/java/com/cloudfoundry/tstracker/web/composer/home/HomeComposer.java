@@ -84,6 +84,15 @@ public class HomeComposer extends GenericForwardComposer<Component> {
 		children.add(compAllProjects);
 	}
 	
+	public void onClick$btnConsultancy(Event event) {
+		List<Component> children = this.hlMainContent.getChildren();
+		if(children != null && !children.isEmpty()) {
+			children.clear();
+		}		
+		Component compAllConsultancy = Executions.createComponents("consultancy/all_consultancy.zul", null, null);
+		children.add(compAllConsultancy);
+	}
+	
 	public void onClick$btnLogout(Event event) {
 		this.authService.doLogout();
 	}	

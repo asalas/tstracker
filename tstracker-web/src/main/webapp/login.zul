@@ -3,16 +3,13 @@
 		apply="com.cloudfoundry.tstracker.web.composer.LoginComposer">
 		<vbox width="420px">
 
-			<html style="color:red"
+			<html style="color:red;"
 				if="${not empty param.login_error}">
-
 				
-				<![CDATA[ Your login attempt was not successful, try
-				again.<br/><br/> Reason:
-				${SPRING_SECURITY_LAST_EXCEPTION.message} ]]>
+				<![CDATA[ Error al iniciar sesión. Intentelo de nuevo.
+				 <br/><br/> Causa: ${SPRING_SECURITY_LAST_EXCEPTION.message} ]]>
 				
-						
-    				</html>
+    		</html>
 
 			<label id="lblDescription"
 				style="font-size: 100%; font-weight: bold; line-height: 1.55; color: #3399CC;"
@@ -59,9 +56,9 @@
 									name="j_password" sclass="textbox_signin" />
 							</vbox>
 							<vbox align="left" width="100%">
-								<button id="btnLogin" label="Aceptar" height="30px" />
-								<toolbarbutton
-									id="btnForgotPass"
+								<button id="btnLogin" label="Aceptar"
+									height="30px" />
+								<toolbarbutton id="btnForgotPass"
 									label="Ha olvidado su contraseña?" href="#" />
 								<checkbox id="ckbRememberMe"
 									sclass="check_signin" visible="false" />

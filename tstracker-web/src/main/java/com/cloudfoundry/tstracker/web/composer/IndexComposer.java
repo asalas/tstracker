@@ -1,8 +1,10 @@
 package com.cloudfoundry.tstracker.web.composer;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Components;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Hbox;
 import org.zkoss.zul.Toolbarbutton;
@@ -41,7 +43,9 @@ public class IndexComposer extends GenericForwardComposer<Component> {
 	}
 	
 	private void resetHBoxMainLayout() {
-		 this.hboxMainLayout.getChildren().clear();		
+		Clients.showBusy("d(o.o)b");
+		Components.removeAllChildren(this.hboxMainLayout);
+		Clients.clearBusy();
 	}
 
 }

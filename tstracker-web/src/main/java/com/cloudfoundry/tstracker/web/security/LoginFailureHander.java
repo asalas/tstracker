@@ -6,10 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 
 public class LoginFailureHander extends SimpleUrlAuthenticationFailureHandler {
+	
+	private static Logger logger = Logger.getLogger(LoginFailureHander.class);
 
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request,
@@ -20,7 +23,6 @@ public class LoginFailureHander extends SimpleUrlAuthenticationFailureHandler {
 		
 		super.onAuthenticationFailure(request, response, exception);
 		
-		System.out.println("LOGIN FAILURE!");
-		exception.printStackTrace();
+		logger.error("LOGIN FAILURE", exception);
 	}
 }

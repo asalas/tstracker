@@ -21,7 +21,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
- * Entidad que representa a un usuario autenticado de la aplicacion
+ * Entidad que representa a un usuario registrado en el sistema
  * @author asalas
  *
  */

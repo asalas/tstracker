@@ -1,6 +1,0 @@
-<window width="50%" title="Sesión caducada" border="normal">
-	<vbox>
-		La sesión ha caducado, se redirecciona a la página inicial en 5 segundos ...
-	</vbox>
-	<timer id="timerSessionTimeout" delay="5000"  onTimer='execution.sendRedirect("/");' /> 
-</window>

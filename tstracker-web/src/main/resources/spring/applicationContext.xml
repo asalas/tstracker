@@ -21,7 +21,7 @@
     <import resource="classpath*:META-INF/spring-service.xml" />
     <import resource="classpath*:META-INF/spring-support.xml" />
  
-    <!-- se configura la lectura del archivo application.properties -->
+    <!-- se configura el place holder para que lea el archivo application.properties -->
     <bean
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">			

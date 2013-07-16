@@ -16,7 +16,7 @@
 				apply="com.cloudfoundry.tstracker.web.composer.home.HomeComposer"
 				sclass="nav_tabs">
 				<tabs id="tabs" width="100%">
-					<tab id="tabProjects" label="Proyectos" />
+					<tab id="tabProjects" label="Actividades" />
 					<tab id="tabReports" label="Reportes" />
 				</tabs>
 				<toolbar>
@@ -29,9 +29,9 @@
 				<tabpanels>
 					<tabpanel>
 						<toolbar width="100%">
-							<toolbarbutton id="btnAllProjects" label="Todos los proyectos" />
-							<toolbarbutton id="btnClients" label="Clientes" />
 							<toolbarbutton id="btnConsultancy" label="Consultoría" />
+							<toolbarbutton id="btnClients" label="Clientes" />
+							<toolbarbutton id="btnAllProjects" label="Proyectos" />							
 						</toolbar>
 					</tabpanel>
 					<tabpanel>

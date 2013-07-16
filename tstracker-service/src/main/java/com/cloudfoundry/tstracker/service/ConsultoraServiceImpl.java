@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author asalas
  * 
  */
-@Service
+@Service (value = "consultoraService")
 public class ConsultoraServiceImpl implements ConsultoraService {
 
         @Autowired
@@ -31,7 +31,7 @@ public class ConsultoraServiceImpl implements ConsultoraService {
 	}
 
 	@Override
-        @Transactional(rollbackFor = Throwable.class)
+    @Transactional(rollbackFor = Throwable.class)
 	public void save(Consultoria consultora) {
 		Consultoria dbConsultora = this.findById(consultora.getId());
 		if(dbConsultora == null) {

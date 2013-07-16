@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="1.0"
-             xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
-    <persistence-unit name="persitence_unit" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    </persistence-unit>
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="persitence_unit"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<class>com.cloudfoundry.tstracker.model.Cliente</class>
+		<class>com.cloudfoundry.tstracker.model.Consultoria</class>
+		<class>com.cloudfoundry.tstracker.model.Desarrollador</class>
+		<class>com.cloudfoundry.tstracker.model.LiderTecnico</class>
+		<class>com.cloudfoundry.tstracker.model.Proyecto</class>
+		<class>com.cloudfoundry.tstracker.model.Reporte</class>
+		<class>com.cloudfoundry.tstracker.model.Tarea</class>
+		<class>com.cloudfoundry.tstracker.model.Usuario</class>
+		<class>com.cloudfoundry.tstracker.model.Rol</class>
+
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
 </persistence>

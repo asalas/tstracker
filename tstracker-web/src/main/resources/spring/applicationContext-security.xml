@@ -56,7 +56,7 @@
     </beans:bean>
 
     <beans:bean id="loginFailureHandler" class="com.cloudfoundry.tstracker.web.security.LoginFailureHander" >
-        <beans:property name="defaultFailureUrl" value="/" />
+        <beans:property name="defaultFailureUrl" value="/?login_error=1" />
     </beans:bean>
     
     <!-- Configura el gestor de decisiones de autenticación. -->

@@ -1,0 +1,23 @@
+<zk>
+	<window title="Agregar Proyecto" border="normal" closable="true" mode="modal">
+
+		<panel>
+			<panelchildren>
+
+				<vbox>
+					
+					<hbox>					
+						<label value="Nombre del proyecto" /> <textbox></textbox>					
+					</hbox>
+					
+					<hbox>					
+						<label value="Duración del proyecto" /> <textbox></textbox>					
+					</hbox>
+				
+				</vbox>
+
+			</panelchildren>
+		</panel>
+
+	</window>
+</zk>
