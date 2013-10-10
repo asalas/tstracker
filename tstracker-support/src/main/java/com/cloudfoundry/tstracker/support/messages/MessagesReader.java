@@ -28,7 +28,7 @@ public class MessagesReader implements Serializable {
         try {
             return resourceBundle.getString(key);
         } catch (MissingResourceException e) {
-            return "¡¡¡" + key + "!!!";
+            return "Esta clave!" + key;
         }
     }
 
@@ -36,7 +36,7 @@ public class MessagesReader implements Serializable {
         try {
             return MessageFormat.format(resourceBundle.getString(key), params);
         } catch (MissingResourceException e) {
-            return '!' + key + '!';
+            return "Esta clave!" + key;
         }
     }
 }
