@@ -158,12 +158,6 @@
 			<artifactId>testng</artifactId>
 			<version>6.8</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.cloudfoundry.tstracker</groupId>
-			<artifactId>tstracker-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<build>
