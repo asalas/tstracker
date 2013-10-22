@@ -38,33 +38,36 @@ public class Proyecto implements Serializable {
 	@Column(name = "id_proyecto")
 	private Long id;
 
-	@Column(name = "nombre")
+	@Column(name = "clave", length = 100, nullable = false)
+	private String clave;
+
+	@Column(name = "nombre", length = 255, nullable = false)
 	private String nombre;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_lider_tecnico", referencedColumnName="id_lider_tecnico")
-	private LiderTecnico liderTecnico;
-
-	@Column(name = "duracion_meses")
-	private Integer duracionMeses;
+	@Column(name = "duracion_dias", nullable = false)
+	private Integer duracion;
 
 	@Enumerated(value = EnumType.STRING)
-	@Column(name = "estado")
-	private EstadoEnum estado;	
-	
+	@Column(name = "estatus", length = 30, nullable = false)
+	private EstatusEnum estatus;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_lider_tecnico", referencedColumnName = "id_lider_tecnico", nullable = false)
+	private LiderTecnico liderTecnico;
+
 	@ManyToMany(mappedBy = "listaProyectos", fetch = FetchType.LAZY)
 	private Set<Desarrollador> listaDesarrolladores = new HashSet<Desarrollador>();
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_cliente", referencedColumnName="id_cliente")
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente", nullable = false)
 	private Cliente cliente;
 
-	public EstadoEnum getEstado() {
-		return estado;
+	public EstatusEnum getEstatus() {
+		return estatus;
 	}
 
-	public void setEstado(EstadoEnum estado) {
-		this.estado = estado;
+	public void setEstatus(EstatusEnum estatus) {
+		this.estatus = estatus;
 	}
 
 	public Long getId() {
@@ -91,12 +94,12 @@ public class Proyecto implements Serializable {
 		this.liderTecnico = liderTecnico;
 	}
 
-	public Integer getDuracionMeses() {
-		return duracionMeses;
+	public Integer getDuracion() {
+		return duracion;
 	}
 
-	public void setDuracionMeses(Integer duracionMeses) {
-		this.duracionMeses = duracionMeses;
+	public void setDuracion(Integer duracionMeses) {
+		this.duracion = duracionMeses;
 	}
 
 	public Set<Desarrollador> getListaDesarrolladores() {
@@ -114,4 +117,13 @@ public class Proyecto implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
+	}
+
 }

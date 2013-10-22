@@ -1,6 +1,6 @@
 package com.cloudfoundry.tstracker.dao;
 
-import com.cloudfoundry.tstracker.service.AuthService;
+import com.cloudfoundry.tstracker.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -19,11 +19,11 @@ public class TestAutowiredBean extends AbstractTestNGSpringContextTests {
     private ClienteDAO clienteDAO;
     
     @Autowired
-    private AuthService authService;
+    private AuthenticationService authenticationService;
 
     @Test(enabled = true)
     public void startUp() {
         Assert.assertNotNull(this.clienteDAO);
-        Assert.assertNotNull(this.authService);
+        Assert.assertNotNull(this.authenticationService);
     }
 }

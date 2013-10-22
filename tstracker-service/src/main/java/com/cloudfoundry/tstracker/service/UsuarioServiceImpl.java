@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.cloudfoundry.tstracker.dao.UsuarioDAO;
 import com.cloudfoundry.tstracker.model.Rol;
-import com.cloudfoundry.tstracker.model.RolesEnum;
+import com.cloudfoundry.tstracker.model.RolEnum;
 import com.cloudfoundry.tstracker.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,10 +80,10 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
     public void registraNuevoDessarrollador(Usuario desarrollador) {
         this.persist(desarrollador);
 
-//El rol por defecto es el de desarrollador, por el momento no es posible asignar otro tipo de rol
-//ya que la herramienta esta diseniada para desarrolladores en su estado actual
+		//El rol por defecto es el de desarrollador, por el momento no es posible asignar otro tipo de rol
+		//ya que la herramienta esta diseniada para desarrolladores en su estado actual
 
-        Rol dbRol = this.rolService.getByCodigoRol(RolesEnum.ROL_DEVELOPER);
+        Rol dbRol = this.rolService.getByCodigoRol(RolEnum.DESARROLLADOR);
         List<Rol> roles = new ArrayList<Rol>();
         roles.add(dbRol);
         desarrollador.setListaRoles(roles);

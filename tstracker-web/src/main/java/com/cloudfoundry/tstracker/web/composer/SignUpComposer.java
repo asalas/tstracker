@@ -11,7 +11,7 @@ import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
 import com.cloudfoundry.tstracker.model.Usuario;
-import com.cloudfoundry.tstracker.service.AuthService;
+import com.cloudfoundry.tstracker.service.AuthenticationService;
 import com.cloudfoundry.tstracker.service.UsuarioService;
 import com.cloudfoundry.tstracker.support.ProxyContextLoaderListener;
 import com.cloudfoundry.tstracker.support.messages.MessagesReader;
@@ -22,8 +22,8 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
     private static final long serialVersionUID = 1L;
     private UsuarioService usuarioService =
             (UsuarioService) ProxyContextLoaderListener.getContext().getBean("usuarioService");
-    private AuthService authService =
-            (AuthService) ProxyContextLoaderListener.getContext().getBean("authService");
+    private AuthenticationService authenticationService =
+            (AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
     public Textbox u;
     public Textbox p;
     public Textbox retypedPassword;
@@ -152,6 +152,6 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
             return;
         }
 
-        this.authService.doLogin(usuario.getNombreUsuario(), "f");
+        this.authenticationService.doLogin(usuario.getNombreUsuario(), "f");
     }
 }

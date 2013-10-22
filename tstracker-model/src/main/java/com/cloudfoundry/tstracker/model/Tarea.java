@@ -38,20 +38,20 @@ public class Tarea implements Serializable {
 	private Long id;
 
 	@Temporal(value = TemporalType.DATE)
-	@Column(name = "dia")
-	private Date dia;
+	@Column(name = "fecha", nullable = false)
+	private Date fecha;
 
-	@Column(name = "actividad")
+	@Column(name = "actividad", length = 150, nullable = false)
 	private String actividad;
 
-	@Column(name = "descripcion")
+	@Column(name = "descripcion", length = 255, nullable = true)
 	private String descripcion;
 
-	@Column(name = "horas")
-	private Integer horas;
-
-	@Column(name = "observaciones")
+	@Column(name = "observaciones", length = 255, nullable = true)
 	private String observaciones;
+	
+	@Column(name = "tiempo_hrs", nullable = false)
+	private Integer tiempoHrs;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_reporte", referencedColumnName = "id_reporte")
@@ -65,12 +65,12 @@ public class Tarea implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDia() {
-		return dia;
+	public Date getFecha() {
+		return fecha;
 	}
 
-	public void setDia(Date dia) {
-		this.dia = dia;
+	public void setFecha(Date dia) {
+		this.fecha = dia;
 	}
 
 	public String getActividad() {
@@ -89,12 +89,12 @@ public class Tarea implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Integer getHoras() {
-		return horas;
+	public Integer getTiempoHrs() {
+		return tiempoHrs;
 	}
 
-	public void setHoras(Integer horas) {
-		this.horas = horas;
+	public void setTiempoHrs(Integer horas) {
+		this.tiempoHrs = horas;
 	}
 
 	public String getObservaciones() {

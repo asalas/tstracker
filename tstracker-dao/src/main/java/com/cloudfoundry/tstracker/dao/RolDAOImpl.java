@@ -4,7 +4,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.cloudfoundry.tstracker.model.Rol;
-import com.cloudfoundry.tstracker.model.RolesEnum;
+import com.cloudfoundry.tstracker.model.RolEnum;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 public class RolDAOImpl extends GenericDAOImpl<Rol, Long> implements RolDAO {
 
 	@Override
-	public Rol getByCodigoRol(RolesEnum codigoRol) {
+	public Rol getByCodigoRol(RolEnum codigoRol) {
 		Rol dbRol = null;
 		
 		try {

@@ -35,17 +35,17 @@ public class Cliente implements Serializable {
 	@Column(name = "id_cliente")
 	private Long id;
 
-	@Column(name = "nombre")
+	@Column(name = "nombre", length = 100, nullable = false)
 	private String nombre;
 
-	@Column(name = "direccion")
+	@Column(name = "direccion", length = 255, nullable = false)
 	private String direccion;
 	
-	@Column(name="telefono")
+	@Column(name="telefono", length = 15, nullable = true)
 	private String telefono;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_consultoria", referencedColumnName="id_consultoria")
+	@JoinColumn(name="id_consultoria", referencedColumnName="id_consultoria", nullable = false)
 	private Consultoria consultoria;
 
 	public Long getId() {

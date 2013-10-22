@@ -40,26 +40,24 @@ public class Reporte implements Serializable {
 	private Long id;
 
 	@Temporal(value = TemporalType.DATE)
-	@Column(name = "fecha_inicial")
+	@Column(name = "fecha_inicial", nullable = false)
 	private Date fechaInicial;
 
 	@Temporal(value = TemporalType.DATE)
-	@Column(name = "fecha_final")
+	@Column(name = "fecha_final", nullable = false)
 	private Date fechaFinal;
 
 	@Temporal(value = TemporalType.DATE)
-	@Column(name = "fecha_entrega")
+	@Column(name = "fecha_entrega", nullable = false)
 	private Date fechaEntrega;
 
-	@Column(name = "num_solicitud")
-	private String numSolicitud;	
 
 //	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //	private List<Tarea> listaTareas;
 
 	@Enumerated(value = EnumType.STRING)
-	@Column(name = "estado")
-	private EstadoEnum estado;
+	@Column(name = "estatus")
+	private EstatusEnum estatus;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_proyecto", referencedColumnName = "id_proyecto")
@@ -89,14 +87,6 @@ public class Reporte implements Serializable {
 		this.fechaFinal = fechaFinal;
 	}
 
-	public String getNumSolicitud() {
-		return numSolicitud;
-	}
-
-	public void setNumSolicitud(String noSolicitud) {
-		this.numSolicitud = noSolicitud;
-	}
-
 //	public List<Tarea> getListaTareas() {
 //		return listaTareas;
 //	}
@@ -105,12 +95,12 @@ public class Reporte implements Serializable {
 //		this.listaTareas = listaTareas;
 //	}
 
-	public EstadoEnum getEstado() {
-		return estado;
+	public EstatusEnum getEstatus() {
+		return estatus;
 	}
 
-	public void setEstado(EstadoEnum estado) {
-		this.estado = estado;
+	public void setEstatus(EstatusEnum estado) {
+		this.estatus = estado;
 	}
 
 	public Date getFechaEntrega() {

@@ -41,7 +41,7 @@ public class Rol implements Serializable, GrantedAuthority {
 	
 	@Enumerated(value = EnumType.STRING)
 	@Column(name = "codigo_rol")
-	private RolesEnum codigoRol;
+	private RolEnum codigoRol;
 	
 	@Column(name = "descripcion_rol")
 	private String descripcionRol;
@@ -57,11 +57,11 @@ public class Rol implements Serializable, GrantedAuthority {
 		this.id = id;
 	}
 
-	public RolesEnum getCodigoRol() {
+	public RolEnum getCodigoRol() {
 		return codigoRol;
 	}
 
-	public void setCodigoRol(RolesEnum codigoRol) {
+	public void setCodigoRol(RolEnum codigoRol) {
 		this.codigoRol = codigoRol;
 	}
 

@@ -22,8 +22,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Entidad que representa a un usuario registrado en el sistema
+ * 
  * @author asalas
- *
+ * 
  */
 
 @Entity
@@ -35,33 +36,33 @@ public class Usuario implements Serializable, UserDetails {
 	 * Serial ID
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@Column(name="nombre_usuario")
+	@Column(name = "nombre_usuario")
 	private String nombreUsuario;
-	
-	@Column(name="password", nullable = false)
+
+	@Column(name = "password", length = 30, nullable = false)
 	private String password;
-	
-	@Column(name = "nombre")
+
+	@Column(name = "nombre", length = 150, nullable = false)
 	private String nombre;
 
-	@Column(name = "apellidos")
+	@Column(name = "apellidos", length = 200, nullable = false)
 	private String apellidos;
 
-	@Column(name = "direccion")
+	@Column(name = "direccion", length = 255, nullable = false)
 	private String direccion;
 
-	@Column(name = "email", unique = true)
+	@Column(name = "email", unique = true, length = 30, nullable = false)
 	private String email;
-	
-	@Column(name="telefono")
+
+	@Column(name = "telefono", nullable = true, length = 20)
 	private String telefono;
-	
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "roles_usuario", 
-				joinColumns = { @JoinColumn(referencedColumnName = "nombre_usuario", name="nombre_usuario", nullable = false, updatable = false) }, 
-				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_rol", name="id_rol", nullable = false, updatable = false) })
+				joinColumns = { @JoinColumn(referencedColumnName = "nombre_usuario", name = "nombre_usuario", nullable = false, updatable = false) }, 
+				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_rol", name = "id_rol", nullable = false, updatable = false) })
 	private List<Rol> listaRoles = new ArrayList<Rol>();
 
 	public String getNombreUsuario() {
@@ -128,18 +129,18 @@ public class Usuario implements Serializable, UserDetails {
 	public void setListaRoles(List<Rol> listaRoles) {
 		this.listaRoles = listaRoles;
 	}
-	
+
 	/* Se implementan los metodos de UserDetailService */
 	@Override
 	public Collection<GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> listGrantedAuthority = new ArrayList<GrantedAuthority>();
-		
-		if (this.listaRoles != null && !this.listaRoles.isEmpty()) {			
-			for (Rol rol: this.listaRoles) {				
+
+		if (this.listaRoles != null && !this.listaRoles.isEmpty()) {
+			for (Rol rol : this.listaRoles) {
 				listGrantedAuthority.add(rol);
-			}			
-		}		
-		
+			}
+		}
+
 		return listGrantedAuthority;
 	}
 

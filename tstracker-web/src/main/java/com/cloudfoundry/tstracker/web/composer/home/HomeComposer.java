@@ -12,7 +12,7 @@ import org.zkoss.zul.Tab;
 import org.zkoss.zul.Toolbarbutton;
 
 import com.cloudfoundry.tstracker.model.Usuario;
-import com.cloudfoundry.tstracker.service.AuthService;
+import com.cloudfoundry.tstracker.service.AuthenticationService;
 import com.cloudfoundry.tstracker.support.ProxyContextLoaderListener;
 import com.cloudfoundry.tstracker.web.util.GravatarUtils;
 
@@ -36,7 +36,7 @@ public class HomeComposer extends GenericForwardComposer<Component> {
 	
 	public Hlayout hlMainContent;
 	
-	private AuthService authService = (AuthService) ProxyContextLoaderListener.getContext().getBean("authService");
+	private AuthenticationService authenticationService = (AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
 	
 	private Usuario usuarioSession;
 	
@@ -44,7 +44,7 @@ public class HomeComposer extends GenericForwardComposer<Component> {
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		
-		this.usuarioSession = this.authService.getCurrentUserInSession();
+		this.usuarioSession = this.authenticationService.getCurrentUserInSession();
 		
 		if (this.usuarioSession != null) {
 			this.btnShowUserName.setLabel(this.usuarioSession.getNombre());
@@ -94,7 +94,7 @@ public class HomeComposer extends GenericForwardComposer<Component> {
 	}
 	
 	public void onClick$btnLogout(Event event) {
-		this.authService.doLogout();
+		this.authenticationService.doLogout();
 	}	
 	
 }

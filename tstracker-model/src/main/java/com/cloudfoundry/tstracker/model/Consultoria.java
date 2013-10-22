@@ -30,16 +30,16 @@ public class Consultoria implements Serializable {
 	@Column(name = "id_consultoria")
 	private Long id;
 
-	@Column(name = "nombre")
+	@Column(name = "nombre", length = 255, nullable = false)
 	private String nombre;
 
-	@Column(name = "direccion")
+	@Column(name = "direccion", length = 255, nullable = false)
 	private String direccion;
 
-	@Column(name = "ejecutivo_cuenta")
+	@Column(name = "ejecutivo_cuenta", length = 255, nullable = true)
 	private String ejecutivoCuenta;
 
-	@Column(name = "email")
+	@Column(name = "email", length = 100, nullable = false)
 	private String email;
 	
 	public Long getId() {

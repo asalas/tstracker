@@ -12,7 +12,7 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Toolbarbutton;
 import org.zkoss.zul.Window;
 
-import com.cloudfoundry.tstracker.service.AuthService;
+import com.cloudfoundry.tstracker.service.AuthenticationService;
 import com.cloudfoundry.tstracker.support.ProxyContextLoaderListener;
 
 public class LoginComposer extends GenericForwardComposer<Component> {
@@ -22,7 +22,7 @@ public class LoginComposer extends GenericForwardComposer<Component> {
     public Textbox p;
     public Button btnLogin;
     public Toolbarbutton btnForgotPass;
-    private AuthService authService = (AuthService) ProxyContextLoaderListener.getContext().getBean("authService");
+    private AuthenticationService authenticationService = (AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
@@ -39,7 +39,7 @@ public class LoginComposer extends GenericForwardComposer<Component> {
             		2000, 
             		true);
         } else {
-            this.authService.doLogin(this.u.getValue(), "f");
+            this.authenticationService.doLogin(this.u.getValue(), "f");
         }
 
     }

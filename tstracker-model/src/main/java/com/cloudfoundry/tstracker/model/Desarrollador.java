@@ -35,9 +35,9 @@ public class Desarrollador extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;	
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "desarrolladores_proyecto", 
-				joinColumns = { @JoinColumn(referencedColumnName = "id_desarrollador", name="id_desarrollador_fk", nullable = false, updatable = false) }, 
-				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_proyecto", name="id_proyecto_fk", nullable = false, updatable = false) })
+	@JoinTable(name = "proyecto_desarrollador", 
+				joinColumns = { @JoinColumn(referencedColumnName = "id_proyecto", name="id_proyecto_fk", nullable = false, updatable = false) }, 
+				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_desarrollador", name="id_desarrollador_fk", nullable = false, updatable = false) })
 	private List<Proyecto> listaProyectos = new ArrayList<Proyecto>();
 
 

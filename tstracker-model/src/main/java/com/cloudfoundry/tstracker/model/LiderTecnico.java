@@ -31,10 +31,10 @@ public class LiderTecnico implements Serializable {
 	@Column(name = "id_lider_tecnico")
 	private Long id;
 
-	@Column(name = "nombre")
+	@Column(name = "nombre", length = 255, nullable = false)
 	private String nombre;
 
-	@Column(name = "email")
+	@Column(name = "email", length = 30, nullable = false)
 	private String email;
 
 	public Long getId() {
