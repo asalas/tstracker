@@ -6,9 +6,10 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 
 /**
- *
- * @author
- * asalas
+ * Proxy para acceder al contexto de spring desde aquellos recursos Java que no
+ * se encuentren dentro de su contexto
+ * 
+ * @author asalas
  */
 public class ProxyContextLoaderListener extends ContextLoaderListener {
 
@@ -18,7 +19,7 @@ public class ProxyContextLoaderListener extends ContextLoaderListener {
     @Override
     public void contextInitialized(ServletContextEvent event) {
         super.contextInitialized(event);
-        log.info("Cargando el contexto del aplicativo");
+        log.info("Cargando el contexto del aplicativo ...");
         ctx = ContextLoaderListener.getCurrentWebApplicationContext();
     }
 

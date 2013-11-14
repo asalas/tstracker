@@ -4,10 +4,10 @@ import com.cloudfoundry.tstracker.model.Usuario;
 
 public interface AuthenticationService {
 
-	public Usuario getCurrentUserInSession();
+	Usuario getCurrentUserInSession();
 	
-	public void doLogin(String userName, String form);
+	void doLogin(String userName, String form);
 	
-	public void doLogout();
+	void doLogout();
 	
 }

@@ -36,7 +36,8 @@ public class HomeComposer extends GenericForwardComposer<Component> {
 	
 	public Hlayout hlMainContent;
 	
-	private AuthenticationService authenticationService = (AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
+	private AuthenticationService authenticationService = 
+			(AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
 	
 	private Usuario usuarioSession;
 	

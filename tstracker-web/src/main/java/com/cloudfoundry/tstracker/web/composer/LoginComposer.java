@@ -22,7 +22,8 @@ public class LoginComposer extends GenericForwardComposer<Component> {
     public Textbox p;
     public Button btnLogin;
     public Toolbarbutton btnForgotPass;
-    private AuthenticationService authenticationService = (AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
+    private AuthenticationService authenticationService = 
+    		(AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
@@ -30,7 +31,6 @@ public class LoginComposer extends GenericForwardComposer<Component> {
     }
 
     public void onClick$btnLogin(Event event) throws Exception {
-    	
         if (Strings.isBlank(this.u.getValue()) || StringUtils.isBlank(this.p.getValue())) {
             Clients.showNotification("El nombre de usuario y password son requeridos.", 
             		Clients.NOTIFICATION_TYPE_ERROR, 
@@ -41,7 +41,6 @@ public class LoginComposer extends GenericForwardComposer<Component> {
         } else {
             this.authenticationService.doLogin(this.u.getValue(), "f");
         }
-
     }
 
     public void onClick$btnForgotPass(Event event) throws Exception {

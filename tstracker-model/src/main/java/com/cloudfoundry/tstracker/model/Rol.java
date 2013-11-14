@@ -24,14 +24,10 @@ import org.springframework.security.core.GrantedAuthority;
  * @author asalas
  *
  */
-
 @Entity
 @Table(name="rol")
 public class Rol implements Serializable, GrantedAuthority {
 
-	/**
-	 * Serial ID
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id

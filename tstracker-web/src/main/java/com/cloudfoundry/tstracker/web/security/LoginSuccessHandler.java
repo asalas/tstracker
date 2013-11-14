@@ -10,21 +10,21 @@ import org.apache.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
-public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
+public class LoginSuccessHandler extends
+		SavedRequestAwareAuthenticationSuccessHandler {
 
 	private static Logger logger = Logger.getLogger(LoginSuccessHandler.class);
-	
-    @Override
-    public void onAuthenticationSuccess(HttpServletRequest request,
-            HttpServletResponse response, Authentication authentication)
-            throws ServletException, IOException {
-        
-        String userName = authentication.getName();        
-        
-        logger.info ("inicio de sesion de: " + userName);
-        
 
-        super.onAuthenticationSuccess(request, response, authentication);
+	@Override
+	public void onAuthenticationSuccess(HttpServletRequest request,
+			HttpServletResponse response, Authentication authentication)
+			throws ServletException, IOException {
 
-    }
+		String userName = authentication.getName();
+
+		logger.info("El usuario: " + userName + " ha iniciado sesion.");
+
+		super.onAuthenticationSuccess(request, response, authentication);
+
+	}
 }

@@ -8,16 +8,14 @@
 	<div align="center"
 		apply="com.cloudfoundry.tstracker.web.composer.IndexComposer">
 
-		<vbox align="center">		
+		<vbox align="center">
 
 			<toolbar id="toolBarMain" sclass="toolBarMenu">
-				<toolbarbutton id="btnHome" sclass="toolbar_button" label="Inicio"
-					image="/assets/images/Home16.png" />
-					
-				<toolbarbutton id="btnSignUp" 
-					sclass="toolbar_button" 
-					label="Registrarse"
-					image="/assets/images/Add_user16.png" />
+				<toolbarbutton id="btnHome" sclass="toolbar_button"
+					label="Inicio" image="/assets/images/Home16.png" />
+
+				<toolbarbutton id="btnSignUp" sclass="toolbar_button"
+					label="Registrarse" image="/assets/images/Add_user16.png" />
 			</toolbar>
 
 			<hbox id="hboxMainLayout" spacing="88px"

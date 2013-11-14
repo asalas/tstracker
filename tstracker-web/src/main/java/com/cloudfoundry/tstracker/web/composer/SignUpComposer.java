@@ -10,20 +10,25 @@ import org.zkoss.zul.Button;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 
+import com.cloudfoundry.tstracker.model.Desarrollador;
 import com.cloudfoundry.tstracker.model.Usuario;
 import com.cloudfoundry.tstracker.service.AuthenticationService;
 import com.cloudfoundry.tstracker.service.UsuarioService;
 import com.cloudfoundry.tstracker.support.ProxyContextLoaderListener;
 import com.cloudfoundry.tstracker.support.messages.MessagesReader;
-import com.cloudfoundry.tstracker.web.util.ContantsTstracker;
 
+
+/**
+ * Composer para el registro de usuarios.
+ * 
+ * @author asalas
+ *
+ */
 public class SignUpComposer extends GenericForwardComposer<Component> {
 
     private static final long serialVersionUID = 1L;
-    private UsuarioService usuarioService =
-            (UsuarioService) ProxyContextLoaderListener.getContext().getBean("usuarioService");
-    private AuthenticationService authenticationService =
-            (AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
+    
+    // propiedades de la UI
     public Textbox u;
     public Textbox p;
     public Textbox retypedPassword;
@@ -33,6 +38,12 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
     public Textbox address;
     public Textbox phone;
     public Button btnSubmit;
+    
+    // servicios a utilizar
+    private UsuarioService usuarioService =
+            (UsuarioService) ProxyContextLoaderListener.getContext().getBean("usuarioService");
+    private AuthenticationService authenticationService =
+            (AuthenticationService) ProxyContextLoaderListener.getContext().getBean("authenticationService");
 
     @Override
     public void doAfterCompose(Component comp) throws Exception {
@@ -45,7 +56,7 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
         if (Strings.isBlank(userName)) {
             throw new WrongValueException(this.u, MessagesReader.getInstance().getString("field.not.empty"));
         } else if (!StringUtils.isAlphanumericSpace(userName)) {
-            throw new WrongValueException(this.u, ContantsTstracker.ALPHA_USER_NAME_NO_EMPTY);
+            throw new WrongValueException(this.u, MessagesReader.getInstance().getString("alphausername.not.empty"));
         }
 
         Usuario dbUsuario = this.usuarioService.findById(userName);
@@ -131,19 +142,19 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
     }
 
     public void onClick$btnSubmit(Event event) throws Exception {
-        Usuario usuario = new Usuario();
-        usuario.setNombreUsuario(getU());
-        usuario.setPassword(getP());
+        Desarrollador desarrollador = new Desarrollador();
+        desarrollador.setNombreUsuario(getU());
+        desarrollador.setPassword(getP());
         getRetypedPassword();
-        usuario.setNombre(getName());
-        usuario.setApellidos(getLastName());
-        usuario.setEmail(getEmail());
-        usuario.setDireccion(getAddress());
-        usuario.setTelefono(getPhone());
+        desarrollador.setNombre(getName());
+        desarrollador.setApellidos(getLastName());
+        desarrollador.setEmail(getEmail());
+        desarrollador.setDireccion(getAddress());
+        desarrollador.setTelefono(getPhone());
 
         // se persisten los datos del nuevo desarrollador
         try {
-            this.usuarioService.registraNuevoDessarrollador(usuario);
+            this.usuarioService.registraNuevoDessarrollador(desarrollador);
         } catch (Exception e) {
             Messagebox.show(MessagesReader.getInstance().getString("signup.error.register"),
                     MessagesReader.getInstance().getString("signup.error.register.header"),
@@ -152,6 +163,6 @@ public class SignUpComposer extends GenericForwardComposer<Component> {
             return;
         }
 
-        this.authenticationService.doLogin(usuario.getNombreUsuario(), "f");
+        this.authenticationService.doLogin(desarrollador.getNombreUsuario(), "f");
     }
 }

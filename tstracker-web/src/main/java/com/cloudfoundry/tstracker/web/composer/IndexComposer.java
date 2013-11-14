@@ -17,22 +17,17 @@ public class IndexComposer extends GenericForwardComposer<Component> {
 	private static final long serialVersionUID = 1L;
         
 	public Hbox hboxMainLayout;
-        
 	public Toolbarbutton btnHome;
-        
 	public Toolbarbutton btnSignUp;
 
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-
 		Executions.createComponents("login.zul", this.hboxMainLayout, null);
-
 	}
 
 
 	public void onClick$btnHome(Event event) throws Exception {
-	
 		resetHBoxMainLayout();
 		Executions.createComponents("login.zul", this.hboxMainLayout, null);
 	}	
@@ -43,7 +38,7 @@ public class IndexComposer extends GenericForwardComposer<Component> {
 	}
 	
 	private void resetHBoxMainLayout() {
-		Clients.showBusy("d(o.o)b");
+		Clients.showBusy("Espere por favor ...");
 		Components.removeAllChildren(this.hboxMainLayout);
 		Clients.clearBusy();
 	}

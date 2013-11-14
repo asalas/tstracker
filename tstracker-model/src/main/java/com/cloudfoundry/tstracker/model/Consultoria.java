@@ -1,12 +1,19 @@
 package com.cloudfoundry.tstracker.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -41,7 +48,14 @@ public class Consultoria implements Serializable {
 
 	@Column(name = "email", length = 100, nullable = false)
 	private String email;
+
 	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "consultoria_desarrollador", 
+				joinColumns = { @JoinColumn(referencedColumnName = "id_consultoria", name="id_consultoria", nullable = false, updatable = false) }, 
+				inverseJoinColumns = { @JoinColumn(referencedColumnName = "nombre_desarrollador", name="nombre_desarrollador", nullable = false, updatable = false) })
+	private List<Desarrollador> listaDesarrolladores = new ArrayList<Desarrollador>();
+
 	public Long getId() {
 		return id;
 	}
@@ -80,6 +94,14 @@ public class Consultoria implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Desarrollador> getListaDesarrolladores() {
+		return listaDesarrolladores;
+	}
+
+	public void setListaDesarrolladores(List<Desarrollador> listaDesarrolladores) {
+		this.listaDesarrolladores = listaDesarrolladores;
 	}
 
 }

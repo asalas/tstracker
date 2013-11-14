@@ -27,7 +27,6 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, String> implements
 			query.setParameter("email", email);
 			dbUsuario = (Usuario)query.getSingleResult();
 		} catch (NoResultException e) {
-			e.printStackTrace();
 		}		
 		
 		return dbUsuario;

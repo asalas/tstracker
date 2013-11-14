@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.cloudfoundry.tstracker.dao.ConsultoraDAO;
 import com.cloudfoundry.tstracker.model.Consultoria;
+import com.cloudfoundry.tstracker.model.Desarrollador;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,15 +16,21 @@ import org.springframework.transaction.annotation.Transactional;
  * @author asalas
  * 
  */
-@Service (value = "consultoraService")
+@Service(value = "consultoraService")
 public class ConsultoraServiceImpl implements ConsultoraService {
 
-        @Autowired
+	@Autowired
 	private ConsultoraDAO consultoraDAO;
 
 	@Override
 	public void persist(Consultoria consultora) {
+		consultora.setId(null);
+		List<Desarrollador> listaDesarrolladores = consultora.getListaDesarrolladores();
+		consultora.setListaDesarrolladores(null);
+		
 		this.consultoraDAO.persist(consultora);
+		consultora.setListaDesarrolladores(listaDesarrolladores);
+		this.consultoraDAO.merge(consultora);
 	}
 
 	@Override
@@ -31,11 +39,11 @@ public class ConsultoraServiceImpl implements ConsultoraService {
 	}
 
 	@Override
-    @Transactional(rollbackFor = Throwable.class)
+	@Transactional(rollbackFor = Throwable.class)
 	public void save(Consultoria consultora) {
 		Consultoria dbConsultora = this.findById(consultora.getId());
-		if(dbConsultora == null) {
-			this.persist(consultora);			
+		if (dbConsultora == null) {
+			this.persist(consultora);
 		} else {
 			this.merge(consultora);
 		}
@@ -43,7 +51,7 @@ public class ConsultoraServiceImpl implements ConsultoraService {
 
 	@Override
 	public void remove(Consultoria consultora) {
-		this.consultoraDAO.remove(consultora);		
+		this.consultoraDAO.remove(consultora);
 	}
 
 	@Override
@@ -54,6 +62,11 @@ public class ConsultoraServiceImpl implements ConsultoraService {
 	@Override
 	public List<Consultoria> getAll() {
 		return this.consultoraDAO.findAll();
+	}
+
+	@Override
+	public List<Consultoria> getByDesarrollador(Desarrollador desarrollador) {
+		return this.consultoraDAO.getByDesarrollador(desarrollador);
 	}
 
 }

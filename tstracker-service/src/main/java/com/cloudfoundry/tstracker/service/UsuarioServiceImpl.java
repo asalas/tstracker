@@ -80,10 +80,7 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
     public void registraNuevoDessarrollador(Usuario desarrollador) {
         this.persist(desarrollador);
 
-		//El rol por defecto es el de desarrollador, por el momento no es posible asignar otro tipo de rol
-		//ya que la herramienta esta diseniada para desarrolladores en su estado actual
-
-        Rol dbRol = this.rolService.getByCodigoRol(RolEnum.DESARROLLADOR);
+        Rol dbRol = this.rolService.getByCodigoRol(RolEnum.ROL_DESARROLLADOR);
         List<Rol> roles = new ArrayList<Rol>();
         roles.add(dbRol);
         desarrollador.setListaRoles(roles);

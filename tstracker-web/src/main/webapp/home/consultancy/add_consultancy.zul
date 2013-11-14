@@ -1,37 +1,55 @@
-<zk>
-	<window title="Agregar Consultoria" border="normal" closable="true" mode="modal"
-	apply="com.cloudfoundry.tstracker.web.composer.home.consultancy.AllConsultancyComposer">
+<zk xmlns:x="xhtml" xmlns:zk="zk">
+	<window id="winAddConsultancy"
+		title="AGREGAR CONSULTORIA"
+		border="normal" closable="true"
+		width="350px" position="center,center"
+		mode="modal"
+		apply="com.cloudfoundry.tstracker.web.composer.home.consultancy.AddConsultancyComposer">
 
 		<panel>
 			<panelchildren>
 
-				<vbox>
-					
-					<hbox>					
-						<label value="Nombre" />
-						<textbox id="txtConsultancyName" />					
-					</hbox>
-					
-					<hbox>					
-						<label value="Dirección" />
-						<textbox id="txtConsultancyAddress" />					
-					</hbox>
-					
-					<hbox>					
-						<label value="Ejecutivo de cuenta" />
-						<textbox id="txtExecutive" />					
-					</hbox>
-					
-					<hbox>					
-						<label value="email" />
-						<textbox id="txtEmail" />					
-					</hbox>
-					
-					<hbox>
-						<button id="btnSaveConsultancy" label="Agregar" />
-					</hbox>
-				
-				</vbox>
+				<x:table>
+					<x:tr>
+						<x:td>
+							<label value="Nombre:" />
+						</x:td>
+						<x:td>
+							<textbox id="txtConsultancyName" />
+						</x:td>
+					</x:tr>
+					<x:tr>
+						<x:td>
+							<label value="Dirección:" />
+						</x:td>
+						<x:td>
+							<textbox id="txtConsultancyAddress" />
+						</x:td>
+					</x:tr>
+					<x:tr>
+						<x:td>
+							<label value="Ejecutivo de cuenta:" />
+						</x:td>
+						<x:td>
+							<textbox id="txtExecutive" />
+						</x:td>
+					</x:tr>
+					<x:tr>
+						<x:td>
+							<label value="e-mail:" />
+						</x:td>
+						<x:td>
+							<textbox id="txtEmail" />
+						</x:td>
+					</x:tr>
+					<x:tr>
+						<x:td colspan="2" align="center">
+							<button id="btnSaveConsultancy"
+								label="Agregar" />
+						</x:td>
+					</x:tr>
+				</x:table>
+
 
 			</panelchildren>
 		</panel>

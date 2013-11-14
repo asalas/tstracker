@@ -11,7 +11,7 @@ import com.cloudfoundry.tstracker.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service(value = "authService")
+@Service(value = "authenticationService")
 public class AuthenticationServiceImpl implements AuthenticationService {
 
 	@Autowired

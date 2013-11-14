@@ -69,17 +69,7 @@
 							<x:tr>
 								<x:td>
 									<label sclass="label_signin"
-										value="Email" />
-								</x:td>
-								<x:td>
-									<textbox id="email"
-										sclass="textbox_signin" />
-								</x:td>
-							</x:tr>
-							<x:tr>
-								<x:td>
-									<label sclass="label_signin"
-										value="Domicilio" />
+										value="Domicilio:" />
 								</x:td>
 								<x:td>
 									<textbox id="address"
@@ -89,7 +79,17 @@
 							<x:tr>
 								<x:td>
 									<label sclass="label_signin"
-										value="Teléfono" />
+										value="e-mail:" />
+								</x:td>
+								<x:td>
+									<textbox id="email"
+										sclass="textbox_signin" />
+								</x:td>
+							</x:tr>
+							<x:tr>
+								<x:td>
+									<label sclass="label_signin"
+										value="Teléfono:" />
 								</x:td>
 								<x:td>
 									<textbox id="phone"

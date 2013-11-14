@@ -12,16 +12,6 @@ public class BeansFactory {
 	}
 
 	/**
-	 * Obtiene un Bean por su tipo especifio
-	 * 
-	 * @param tipoBean
-	 * @return
-	 */
-	public static Object getBeanByType(Class<?> tipoBean) {
-		return context.getBean(tipoBean);
-	}
-
-	/**
 	 * Obtiene un Bean por su nombre especifico
 	 * 
 	 * @param nombreBean

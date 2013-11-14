@@ -32,9 +32,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable, UserDetails {
 
-	/**
-	 * Serial ID
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
