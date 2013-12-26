@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContextType;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -31,7 +32,7 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
     
     private Class<T> entityBeanType;
     
-    @PersistenceContext(type = PersistenceContextType.EXTENDED)
+    @PersistenceContext(type = PersistenceContextType.TRANSACTION)
     EntityManager entityManager;
     
     EntityTransaction entityTransaction;
@@ -55,19 +56,23 @@ public abstract class GenericDAOImpl<T, ID extends Serializable> implements Gene
     }
 
     public Class<T> getEntityBeanType() {
-        return entityBeanType;
+        Hibernate.initialize(entityBeanType);
+    	return entityBeanType;
     }
 
     @Override
     public T findById(ID id) {
         T entityResult = getEntityManager().find(entityBeanType, id);
+        Hibernate.initialize(entityResult);
         return entityResult;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public List<T> findAll() {
-        return getEntityManager().createQuery("from " + getEntityBeanType().getName()).getResultList();
+        List resultList = getEntityManager().createQuery("from " + getEntityBeanType().getName()).getResultList();
+        Hibernate.initialize(resultList);
+		return resultList;
     }
 
     @SuppressWarnings("unchecked")

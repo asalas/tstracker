@@ -21,6 +21,6 @@ public class LoginFailureHander extends SimpleUrlAuthenticationFailureHandler {
 
 		super.onAuthenticationFailure(request, response, exception);
 
-		logger.error("LOGIN FAILURE", exception);
+		logger.info("Error al inicio de sesion " + exception.getMessage());
 	}
 }

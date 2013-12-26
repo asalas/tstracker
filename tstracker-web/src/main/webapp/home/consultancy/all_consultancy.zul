@@ -4,7 +4,7 @@
 		<button id="btnAddConsultancy" image="/assets/images/Add16.png"
 			label="Agregar cosultoria" />
 
-		<listbox>
+		<listbox id="lstConsultorias">
 			<listhead>
 				<listheader label="Consultoria" sort="auto" />
 			</listhead>

@@ -19,7 +19,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 	@Override
 	public Usuario getCurrentUserInSession() {
-
 		Execution executionCurrent = Executions.getCurrent();
 		Session session = executionCurrent.getSession();
 		Object currentUserName = session.getAttribute("current_user");
