@@ -5,6 +5,7 @@ import javax.persistence.Query;
 
 import com.cloudfoundry.tstracker.model.Rol;
 import com.cloudfoundry.tstracker.model.RolEnum;
+
 import org.springframework.stereotype.Repository;
 
 /**
@@ -20,11 +21,11 @@ public class RolDAOImpl extends GenericDAOImpl<Rol, Long> implements RolDAO {
 		Rol dbRol = null;
 		
 		try {
-			Query query = getEntityManager().createQuery("from Rol where codigoRol = :codigoRol");
+			String hql = "FROM Rol WHERE codigoRol = :codigoRol";
+			Query query = getEntityManager().createQuery(hql);
 			query.setParameter("codigoRol", codigoRol);
 			dbRol = (Rol) query.getSingleResult();			
 		} catch (NoResultException e) {
-			e.printStackTrace();
 		}	
 		
 		return dbRol;

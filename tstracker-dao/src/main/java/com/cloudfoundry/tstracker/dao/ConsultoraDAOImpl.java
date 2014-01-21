@@ -15,15 +15,16 @@ public class ConsultoraDAOImpl extends GenericDAOImpl<Consultoria, Long>
 		implements ConsultoraDAO {
 
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Consultoria> getByDesarrollador(Desarrollador desarrollador) {
 		List<Consultoria> results = null;
 		try {
-			String hql = "SELECT "
-					+ "cons "
+			String hql = "SELECT cons "
 					+ "FROM Consultoria AS cons "
 					+ "JOIN cons.listaDesarrolladores AS devs "
-					+ "WHERE devs.nombreUsuario = :userName";
+					+ "WHERE "
+					+ "devs.nombreUsuario = :userName";
 			Query query = getEntityManager().createQuery(hql);
 			query.setParameter("userName", desarrollador.getNombreUsuario());
 			results = (List<Consultoria>) query.getResultList();

@@ -20,7 +20,7 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, String> implements
 		
 		Usuario dbUsuario = null;
 		
-		String hql = "from Usuario where email = :email";
+		String hql = "FROM Usuario WHERE email = :email";
 		
 		try {
 			Query query = getEntityManager().createQuery(hql);
