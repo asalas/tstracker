@@ -12,6 +12,7 @@ import com.cloudfoundry.tstracker.dao.UsuarioDAO;
 import com.cloudfoundry.tstracker.model.Rol;
 import com.cloudfoundry.tstracker.model.RolEnum;
 import com.cloudfoundry.tstracker.model.Usuario;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,24 +50,21 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
         return this.usuarioDAO.findAll();
     }
 
-    public UsuarioDAO getUsuarioDAO() {
-        return usuarioDAO;
-    }
-
-    public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
-        this.usuarioDAO = usuarioDAO;
-    }
-
     @Override
     public Usuario findByEmail(String email) {
         return this.usuarioDAO.findByEmail(email);
+    }
+    
+    @Override
+    public Usuario findByUserName(String nombreUsuario) {
+    	return this.usuarioDAO.findByUserName(nombreUsuario);
     }
 
     @Override
     public UserDetails loadUserByUsername(String userName)
             throws UsernameNotFoundException, DataAccessException {
 
-        Usuario usuario = this.findById(userName);
+        Usuario usuario = this.findByUserName(userName);
 
         if (usuario == null) {
             throw new UsernameNotFoundException("No se encontro el usuario: " + userName);

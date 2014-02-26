@@ -53,7 +53,7 @@ public class Tarea implements Serializable {
 	@Column(name = "tiempo_hrs", nullable = false)
 	private Integer tiempoHrs;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_reporte", referencedColumnName = "id_reporte")
 	private Reporte reporte;
 

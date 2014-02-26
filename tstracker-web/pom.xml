@@ -94,7 +94,7 @@
 			<artifactId>gravatar4java</artifactId>
 			<version>1.1</version>
 		</dependency>
-		
+
 		<!-- Pool de conexiones Enterprise -->
 		<dependency>
 			<groupId>c3p0</groupId>
@@ -132,6 +132,7 @@
 	<build>
 		<finalName>tstracker</finalName>
 		<plugins>
+			<!-- Plugin para compilar con la version 1.7 de Java -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
@@ -141,7 +142,120 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
+
+
+			<!-- Plugin para soportar la escritura de propiedades de acuerdo al profile 
+				seleccionado -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			
+			
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create-timestamp</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <timestampFormat>yyyy-MM-dd hh:mm:ss</timestampFormat>
+                    <timestampPropertyName>buildTimeStamp</timestampPropertyName>
+                    <doCheck>true</doCheck>
+                    <doUpdate>true</doUpdate>
+                </configuration>
+            </plugin>
+
+
+
 		</plugins>
+
+
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/profiles/${profile.name}</directory>
+				<targetPath>spring</targetPath>
+				<includes>
+					<include>*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+
 	</build>
+
+
+	<profiles>
+		<profile>
+			<id>development</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Base de datos -->
+				<profile.jdbc.driverClassName>com.mysql.jdbc.Driver</profile.jdbc.driverClassName>
+				<profile.jdbc.url>jdbc:mysql://localhost/tstracker?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</profile.jdbc.url>
+				<profile.jdbc.username>root</profile.jdbc.username>
+				<profile.jdbc.password>root</profile.jdbc.password>
+				<profile.jdbc.jndi>jdbc/tstracker_jndi</profile.jdbc.jndi>
+				<!-- Mensajes en bitácora -->
+				<profile.log4j.rootLogger>info, stdout</profile.log4j.rootLogger>
+				<profile.log4j.file>appLog</profile.log4j.file>
+				<!-- Project Version -->
+				<profile.project.version>${project.version}, build:</profile.project.version>
+				<profile.name>development</profile.name>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>qa</id>
+			<properties>
+				<!-- Base de datos -->
+				<profile.jdbc.driverClassName>com.mysql.jdbc.Driver</profile.jdbc.driverClassName>
+				<profile.jdbc.url>jdbc:mysql://localhost/tstracker?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</profile.jdbc.url>
+				<profile.jdbc.username>root</profile.jdbc.username>
+				<profile.jdbc.password>root</profile.jdbc.password>
+				<profile.jdbc.jndi>jdbc/conaliteg_jndi</profile.jdbc.jndi>
+				<!-- Mensajes en bitácora -->
+				<profile.log4j.rootLogger>info, stdout</profile.log4j.rootLogger>
+				<profile.log4j.file>appLog</profile.log4j.file>
+				<!-- Project Version -->
+				<profile.project.version>${project.version}, build:${buildTimeStamp}</profile.project.version>
+				<profile.name>qa</profile.name>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>production</id>
+			<properties>
+				<!-- Base de datos -->
+				<profile.jdbc.driverClassName>com.mysql.jdbc.Driver</profile.jdbc.driverClassName>
+				<profile.jdbc.url>jdbc:mysql://localhost/tstracker?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</profile.jdbc.url>
+				<profile.jdbc.username>root</profile.jdbc.username>
+				<profile.jdbc.password>root</profile.jdbc.password>
+				<profile.jdbc.jndi>jdbc/conaliteg_jndi</profile.jdbc.jndi>
+				<profile.log4j.rootLogger>info, R</profile.log4j.rootLogger>
+				<profile.log4j.file>appLog</profile.log4j.file>
+				<!-- Project Version -->
+				<profile.project.version>${project.version}, build:</profile.project.version>
+				<profile.name>production</profile.name>
+			</properties>
+		</profile>
+		
+	</profiles>
 
 </project>

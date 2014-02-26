@@ -59,7 +59,7 @@ public class Reporte implements Serializable {
 	@Column(name = "estatus")
 	private EstatusEnum estatus;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_proyecto", referencedColumnName = "id_proyecto")
 	private Proyecto proyecto;
 

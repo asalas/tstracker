@@ -42,8 +42,8 @@ public class Rol implements Serializable, GrantedAuthority {
 	@Column(name = "descripcion_rol")
 	private String descripcionRol;
 	
-	@ManyToMany(mappedBy="listaRoles", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private Set<Usuario> listaUsuarios = new HashSet<Usuario>();
+//	@ManyToMany(mappedBy="listaRoles", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+//	private Set<Usuario> listaUsuarios = new HashSet<Usuario>();
 
 	public Long getId() {
 		return id;
@@ -69,17 +69,26 @@ public class Rol implements Serializable, GrantedAuthority {
 		this.descripcionRol = descripcionRol;
 	}
 	
-	public Set<Usuario> getListaUsuarios() {
-		return listaUsuarios;
-	}
-
-	public void setListaUsuarios(Set<Usuario> listUsuarios) {
-		this.listaUsuarios = listUsuarios;
-	}
+//	public Set<Usuario> getListaUsuarios() {
+//		return listaUsuarios;
+//	}
+//
+//	public void setListaUsuarios(Set<Usuario> listUsuarios) {
+//		this.listaUsuarios = listUsuarios;
+//	}
 
 	/* Se implementan los metodos de GrantedAuthority */
 	@Override
 	public String getAuthority() {
 		return this.codigoRol != null ? this.codigoRol.toString() : null;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Rol [id=").append(id).append(", codigoRol=")
+				.append(codigoRol).append(", descripcionRol=")
+				.append(descripcionRol).append("]");
+		return builder.toString();
 	}
 }

@@ -79,6 +79,7 @@
 
 	<!-- SE DEFINEN LAS PROPIEDADES COMUNES A TODOS LOS MODULOS -->
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<cxf.version>2.2.10</cxf.version>
 		<spring.version>3.0.6.RELEASE</spring.version>
 		<zk.version>6.5.2</zk.version>
@@ -222,6 +223,38 @@
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.8</version>
+		</dependency>
+
+		<!-- Cambiar el scope de provided a compile si no se usa Glassfish -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Cambiar el scope de provided a compile si no se usa Glassfish -->
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Java EE Api, se sustituyen las javaee-web-api por problemas con spring-test -->
+		<dependency>
+			<groupId>org.glassfish.extras</groupId>
+			<artifactId>glassfish-embedded-all</artifactId>
+			<version>3.1.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.glassfish.extras</groupId>
+			<artifactId>glassfish-embedded-all</artifactId>
+			<version>3.1.1</version>
+			<scope>provided</scope>
+			<classifier>sources</classifier>
 		</dependency>
 
 	</dependencies>

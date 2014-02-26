@@ -4,6 +4,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import com.cloudfoundry.tstracker.model.Usuario;
+
 import org.springframework.stereotype.Repository;
 
 /**
@@ -28,6 +29,22 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario, String> implements
 			dbUsuario = (Usuario)query.getSingleResult();
 		} catch (NoResultException e) {
 		}		
+		
+		return dbUsuario;
+	}
+	
+	@Override
+	public Usuario findByUserName(String userName) {
+		Usuario dbUsuario = null;
+		
+		String hql = "SELECT u FROM Usuario u JOIN u.listaRoles WHERE u.nombreUsuario = :userName";
+		
+		try {
+			Query query = getEntityManager().createQuery(hql);
+			query.setParameter("userName", userName);
+			dbUsuario = (Usuario)query.getSingleResult();
+		} catch (NoResultException e) {
+		}
 		
 		return dbUsuario;
 	}

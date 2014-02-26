@@ -6,18 +6,20 @@ import com.cloudfoundry.tstracker.model.Usuario;
 
 public interface UsuarioService {
 
-	public void persist(Usuario usuario);
+	void persist(Usuario usuario);
 	
-	public void merge(Usuario usuario);
+	void merge(Usuario usuario);
 	
-	public void remove(Usuario usuario);
+	void remove(Usuario usuario);
 	
-	public Usuario findById(String nombreUsuario);
+	Usuario findById(String nombreUsuario);
 	
-	public List<Usuario> getAll();
+	List<Usuario> getAll();
 	
-	public Usuario findByEmail(String email);
+	Usuario findByEmail(String email);
 	
-	public void registraNuevoDessarrollador(Usuario desarrollador);
+	void registraNuevoDessarrollador(Usuario desarrollador);
+	
+	Usuario findByUserName(String nombreUsuario);
 	
 }

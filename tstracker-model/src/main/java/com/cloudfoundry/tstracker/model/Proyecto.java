@@ -1,9 +1,12 @@
 package com.cloudfoundry.tstracker.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -51,14 +55,17 @@ public class Proyecto implements Serializable {
 	@Column(name = "estatus", length = 30, nullable = false)
 	private EstatusEnum estatus;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_lider_tecnico", referencedColumnName = "id_lider_tecnico", nullable = false)
 	private LiderTecnico liderTecnico;
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "proyecto_desarrollador", 
+				joinColumns = { @JoinColumn(referencedColumnName = "id_proyecto", name="id_proyecto", nullable = false, updatable = false) }, 
+				inverseJoinColumns = { @JoinColumn(referencedColumnName = "nombre_usuario", name="nombre_desarrollador", nullable = false, updatable = false) })
+	private List<Desarrollador> listaDesarrolladores = new ArrayList<Desarrollador>();
 
-	@ManyToMany(mappedBy = "listaProyectos", fetch = FetchType.LAZY)
-	private Set<Desarrollador> listaDesarrolladores = new HashSet<Desarrollador>();
-
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente", nullable = false)
 	private Cliente cliente;
 
@@ -102,11 +109,11 @@ public class Proyecto implements Serializable {
 		this.duracion = duracionMeses;
 	}
 
-	public Set<Desarrollador> getListaDesarrolladores() {
+	public List<Desarrollador> getListaDesarrolladores() {
 		return listaDesarrolladores;
 	}
 
-	public void setListaDesarrolladores(Set<Desarrollador> listaDesarrolladores) {
+	public void setListaDesarrolladores(List<Desarrollador> listaDesarrolladores) {
 		this.listaDesarrolladores = listaDesarrolladores;
 	}
 

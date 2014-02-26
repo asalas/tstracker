@@ -9,6 +9,8 @@ import com.cloudfoundry.tstracker.model.Usuario;
  */
 public interface UsuarioDAO extends GenericDAO<Usuario, String> {
 	
-	public Usuario findByEmail(String email);
+	Usuario findByEmail(String email);
+	
+	Usuario findByUserName(String userName);
 	
 }

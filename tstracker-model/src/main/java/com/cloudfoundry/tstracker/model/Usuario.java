@@ -56,8 +56,8 @@ public class Usuario implements Serializable, UserDetails {
 	@Column(name = "telefono", nullable = true, length = 20)
 	private String telefono;
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "roles_usuario", 
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "usuario_roles", 
 				joinColumns = { @JoinColumn(referencedColumnName = "nombre_usuario", name = "nombre_usuario", nullable = false, updatable = false) }, 
 				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_rol", name = "id_rol", nullable = false, updatable = false) })
 	private List<Rol> listaRoles = new ArrayList<Rol>();
@@ -164,5 +164,17 @@ public class Usuario implements Serializable, UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Usuario [nombreUsuario=").append(nombreUsuario)
+				.append(", password=").append(password).append(", nombre=")
+				.append(nombre).append(", apellidos=").append(apellidos)
+				.append(", direccion=").append(direccion).append(", email=")
+				.append(email).append(", telefono=").append(telefono)
+				.append(", listaRoles=").append(listaRoles).append("]");
+		return builder.toString();
 	}
 }

@@ -44,7 +44,7 @@ public class Cliente implements Serializable {
 	@Column(name="telefono", length = 15, nullable = true)
 	private String telefono;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_consultoria", referencedColumnName="id_consultoria", nullable = false)
 	private Consultoria consultoria;
 

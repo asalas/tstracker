@@ -36,29 +36,29 @@ public class Desarrollador extends Usuario implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;	
 
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "proyecto_desarrollador", 
-				joinColumns = { @JoinColumn(referencedColumnName = "nombre_usuario", name="nombre_desarrollador", nullable = false, updatable = false) }, 
-				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_proyecto", name="id_proyecto", nullable = false, updatable = false) })
-	private List<Proyecto> listaProyectos = new ArrayList<Proyecto>();
+//	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinTable(name = "proyecto_desarrollador", 
+//				joinColumns = { @JoinColumn(referencedColumnName = "nombre_usuario", name="nombre_desarrollador", nullable = false, updatable = false) }, 
+//				inverseJoinColumns = { @JoinColumn(referencedColumnName = "id_proyecto", name="id_proyecto", nullable = false, updatable = false) })
+//	private List<Proyecto> listaProyectos = new ArrayList<Proyecto>();
 
-	@ManyToMany(mappedBy = "listaDesarrolladores", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Consultoria> listaConsultorias = new HashSet<Consultoria>();
+//	@ManyToMany(mappedBy = "listaDesarrolladores", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private Set<Consultoria> listaConsultorias = new HashSet<Consultoria>();
 	
-	public List<Proyecto> getListaProyectos() {
-		return listaProyectos;
-	}
+//	public List<Proyecto> getListaProyectos() {
+//		return listaProyectos;
+//	}
+//
+//	public void setListaProyectos(List<Proyecto> listaProyectos) {
+//		this.listaProyectos = listaProyectos;
+//	}
 
-	public void setListaProyectos(List<Proyecto> listaProyectos) {
-		this.listaProyectos = listaProyectos;
-	}
-
-	public Set<Consultoria> getListaConsultorias() {
-		return listaConsultorias;
-	}
-
-	public void setListaConsultorias(Set<Consultoria> listaConsultorias) {
-		this.listaConsultorias = listaConsultorias;
-	}
+//	public Set<Consultoria> getListaConsultorias() {
+//		return listaConsultorias;
+//	}
+//
+//	public void setListaConsultorias(Set<Consultoria> listaConsultorias) {
+//		this.listaConsultorias = listaConsultorias;
+//	}
 
 }
