@@ -1,5 +1,5 @@
 <zk>
-	<vlayout apply="com.cloudfoundry.tstracker.web.composer.home.projects.AllProjectsComposer">
+	<vlayout apply="com.terminaltics.tstracker.web.composer.home.projects.AllProjectsComposer">
 	
 		<button id="btnAddProject" image="/assets/images/Add16.png" label="Agregar proyecto" />
 		

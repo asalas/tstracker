@@ -1,5 +1,5 @@
 <zk>
-	<vlayout apply="com.cloudfoundry.tstracker.web.composer.home.consultancy.ConsultancyComposer">
+	<vlayout apply="com.terminaltics.tstracker.web.composer.home.consultancy.ConsultancyComposer">
 	
 		<button id="btnAddConsultancy" image="/assets/images/Add16.png"
 			label="Agregar cosultoria" />

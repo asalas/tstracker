@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>tstracker-pom</artifactId>
-		<groupId>com.cloudfoundry.tstracker</groupId>
+		<groupId>com.terminaltics.tstracker</groupId>
 		<version>1.1-SNAPSHOT</version>
 	</parent>
 
@@ -104,25 +104,25 @@
 
 		<!-- MODULOS DEL APLICATIVO WEB -->
 		<dependency>
-			<groupId>com.cloudfoundry.tstracker</groupId>
+			<groupId>com.terminaltics.tstracker</groupId>
 			<artifactId>tstracker-model</artifactId>
 			<version>1.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.cloudfoundry.tstracker</groupId>
+			<groupId>com.terminaltics.tstracker</groupId>
 			<artifactId>tstracker-dao</artifactId>
 			<version>1.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.cloudfoundry.tstracker</groupId>
+			<groupId>com.terminaltics.tstracker</groupId>
 			<artifactId>tstracker-service</artifactId>
 			<version>1.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.cloudfoundry.tstracker</groupId>
+			<groupId>com.terminaltics.tstracker</groupId>
 			<artifactId>tstracker-support</artifactId>
 			<version>1.1-SNAPSHOT</version>
 		</dependency>
@@ -222,24 +222,6 @@
 		</profile>
 		
 		<profile>
-			<id>qa</id>
-			<properties>
-				<!-- Base de datos -->
-				<profile.jdbc.driverClassName>com.mysql.jdbc.Driver</profile.jdbc.driverClassName>
-				<profile.jdbc.url>jdbc:mysql://localhost/tstracker?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</profile.jdbc.url>
-				<profile.jdbc.username>root</profile.jdbc.username>
-				<profile.jdbc.password>root</profile.jdbc.password>
-				<profile.jdbc.jndi>jdbc/conaliteg_jndi</profile.jdbc.jndi>
-				<!-- Mensajes en bitácora -->
-				<profile.log4j.rootLogger>info, stdout</profile.log4j.rootLogger>
-				<profile.log4j.file>appLog</profile.log4j.file>
-				<!-- Project Version -->
-				<profile.project.version>${project.version}, build:${buildTimeStamp}</profile.project.version>
-				<profile.name>qa</profile.name>
-			</properties>
-		</profile>
-		
-		<profile>
 			<id>production</id>
 			<properties>
 				<!-- Base de datos -->
@@ -247,7 +229,7 @@
 				<profile.jdbc.url>jdbc:mysql://localhost/tstracker?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</profile.jdbc.url>
 				<profile.jdbc.username>root</profile.jdbc.username>
 				<profile.jdbc.password>root</profile.jdbc.password>
-				<profile.jdbc.jndi>jdbc/conaliteg_jndi</profile.jdbc.jndi>
+				<profile.jdbc.jndi>jdbc/tstracker_jndi</profile.jdbc.jndi>
 				<profile.log4j.rootLogger>info, R</profile.log4j.rootLogger>
 				<profile.log4j.file>appLog</profile.log4j.file>
 				<!-- Project Version -->

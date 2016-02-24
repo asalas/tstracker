@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>tstracker-pom</artifactId>
-		<groupId>com.cloudfoundry.tstracker</groupId>
+		<groupId>com.terminaltics.tstracker</groupId>
 		<version>1.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
@@ -34,7 +34,7 @@
         </dependency>
         
  		<dependency>
-			<groupId>com.cloudfoundry.tstracker</groupId>
+			<groupId>com.terminaltics.tstracker</groupId>
 			<artifactId>tstracker-model</artifactId>
 			<version>1.1-SNAPSHOT</version>
 		</dependency>

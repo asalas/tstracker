@@ -44,12 +44,12 @@
 	</http>
 
 	<beans:bean id="loginSuccessHandler"
-		class="com.cloudfoundry.tstracker.web.security.LoginSuccessHandler">
+		class="com.terminaltics.tstracker.web.security.LoginSuccessHandler">
 		<beans:property name="defaultTargetUrl" value="/home" />
 	</beans:bean>
 
 	<beans:bean id="loginFailureHandler"
-		class="com.cloudfoundry.tstracker.web.security.LoginFailureHander">
+		class="com.terminaltics.tstracker.web.security.LoginFailureHander">
 		<beans:property name="defaultFailureUrl" value="/?login_error=1" />
 	</beans:bean>
 
@@ -75,7 +75,7 @@
 		class="org.springframework.security.access.vote.AuthenticatedVoter" />
 
 	<beans:bean id="usuarioService"
-		class="com.cloudfoundry.tstracker.service.UsuarioServiceImpl" />
+		class="com.terminaltics.tstracker.service.UsuarioServiceImpl" />
 
 	<authentication-manager>
 		<authentication-provider user-service-ref="usuarioService">

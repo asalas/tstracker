@@ -6,15 +6,15 @@
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<class>com.cloudfoundry.tstracker.model.Cliente</class>
-		<class>com.cloudfoundry.tstracker.model.Consultoria</class>
-		<class>com.cloudfoundry.tstracker.model.Desarrollador</class>
-		<class>com.cloudfoundry.tstracker.model.LiderTecnico</class>
-		<class>com.cloudfoundry.tstracker.model.Proyecto</class>
-		<class>com.cloudfoundry.tstracker.model.Reporte</class>
-		<class>com.cloudfoundry.tstracker.model.Tarea</class>
-		<class>com.cloudfoundry.tstracker.model.Usuario</class>
-		<class>com.cloudfoundry.tstracker.model.Rol</class>
+		<class>com.terminaltics.tstracker.model.Cliente</class>
+		<class>com.terminaltics.tstracker.model.Consultoria</class>
+		<class>com.terminaltics.tstracker.model.Desarrollador</class>
+		<class>com.terminaltics.tstracker.model.LiderTecnico</class>
+		<class>com.terminaltics.tstracker.model.Proyecto</class>
+		<class>com.terminaltics.tstracker.model.Reporte</class>
+		<class>com.terminaltics.tstracker.model.Tarea</class>
+		<class>com.terminaltics.tstracker.model.Usuario</class>
+		<class>com.terminaltics.tstracker.model.Rol</class>
 
 		<properties>
 			<property name="hibernate.archive.autodetection" value="class" />

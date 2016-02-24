@@ -14,7 +14,7 @@
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
-	<context:component-scan base-package="com.cloudfoundry.tstracker" />
+	<context:component-scan base-package="com.terminaltics.tstracker" />
 
 	<import resource="classpath*:META-INF/tstracker-model.xml" />
 	<import resource="classpath*:META-INF/tstracker-dao.xml" />

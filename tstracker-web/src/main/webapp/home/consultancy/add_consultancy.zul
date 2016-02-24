@@ -4,7 +4,7 @@
 		border="normal" closable="true"
 		width="350px" position="center,center"
 		mode="modal"
-		apply="com.cloudfoundry.tstracker.web.composer.home.consultancy.AddConsultancyComposer">
+		apply="com.terminaltics.tstracker.web.composer.home.consultancy.AddConsultancyComposer">
 
 		<panel>
 			<panelchildren>

@@ -64,7 +64,7 @@
 
 	<!-- ContextLoaderListener de Spring -->
 	<listener>
-		<listener-class>com.cloudfoundry.tstracker.support.ProxyContextLoaderListener</listener-class>
+		<listener-class>com.terminaltics.tstracker.support.ProxyContextLoaderListener</listener-class>
 	</listener>
 
 	<servlet>

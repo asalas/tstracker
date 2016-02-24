@@ -1,6 +1,6 @@
 <zk>
 	<hlayout
-		apply="com.cloudfoundry.tstracker.web.composer.LoginComposer">
+		apply="com.terminaltics.tstracker.web.composer.LoginComposer">
 		<vbox width="420px">
 
 			<html style="color:red;"

@@ -13,7 +13,7 @@
 		<div align="left"
 			width="1000px">
 			<tabbox
-				apply="com.cloudfoundry.tstracker.web.composer.home.HomeComposer"
+				apply="com.terminaltics.tstracker.web.composer.home.HomeComposer"
 				sclass="nav_tabs">
 				<tabs id="tabs" width="100%">
 					<tab id="tabProjects" label="Actividades" />

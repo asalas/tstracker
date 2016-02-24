@@ -2,7 +2,7 @@
 	<div width="673px" align="center">
 
 		<panel
-			apply="com.cloudfoundry.tstracker.web.composer.SignUpComposer"
+			apply="com.terminaltics.tstracker.web.composer.SignUpComposer"
 			border="normal" width="60%">
 			<caption sclass="texto_header"
 				image="/assets/images/Add_user16.png" label="Crea tu cuenta" />
